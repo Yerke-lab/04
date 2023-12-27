@@ -1,0 +1,2052 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000002d9000a4860, pid=12392, tid=15260
+#
+# JRE version: OpenJDK Runtime Environment Temurin-17.0.9+9 (17.0.9+9) (build 17.0.9+9)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-17.0.9+9 (17.0.9+9, mixed mode, tiered, compressed oops, compressed class ptrs, parallel gc, windows-amd64)
+# Problematic frame:
+# J 9088% c1 org.eclipse.jdt.internal.core.util.CommentRecorderParser.resetModifiers()V (17 bytes) @ 0x000002d9000a4860 [0x000002d9000a4840+0x0000000000000020]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --add-modules=ALL-SYSTEM --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Djava.import.generatesMetadataFilesAtProjectRoot=false -DDetectVMInstallationsJob.disabled=true -Dfile.encoding=utf8 -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable -javaagent:c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\lombok\lombok-1.18.30.jar -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=c:\Users\HOME\AppData\Roaming\Code\User\workspaceStorage\6da7782a05a9d81c35b37bf8373c1f55\redhat.java -Daether.dependencyCollector.impl=bf c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\server\plugins\org.eclipse.equinox.launcher_1.6.600.v20231106-1826.jar -configuration c:\Users\HOME\AppData\Roaming\Code\User\globalStorage\redhat.java\1.25.1\config_win -data c:\Users\HOME\AppData\Roaming\Code\User\workspaceStorage\6da7782a05a9d81c35b37bf8373c1f55\redhat.java\jdt_ws --stdio
+
+Host: Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz, 4 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Sun Dec 24 20:02:55 2023  Windows 10 , 64 bit Build 19041 (10.0.19041.3636) elapsed time: 3414.349373 seconds (0d 0h 56m 54s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002d97c306820):  JavaThread "ForkJoinPool.commonPool-worker-5" daemon [_thread_in_Java, id=15260, stack(0x000000f25fd00000,0x000000f25fe00000)]
+
+Stack: [0x000000f25fd00000,0x000000f25fe00000],  sp=0x000000f25fdfe288,  free space=1016k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  0x000002d9000a4860
+
+The last pc belongs to nmethod (printed below).
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), writing address 0x000001e4bfbf55e0
+
+
+Registers:
+RAX=0x00000001002ed030, RBX=0x000002d978922648, RCX=0x0000000000000007, RDX=0x00000000eb281110
+RSP=0x000000f25fdfe288, RBP=0x000000f25fdfe358, RSI=0x00000000eb281110, RDI=0x000002d920158b38
+R8 =0x0000000000000001, R9 =0x000002d97c306820, R10=0x0000000100326a70, R11=0x000002d97137940a
+R12=0x0000000000000000, R13=0x00000000eb281110, R14=0x000000f25fdfe370, R15=0x000002d97c306820
+RIP=0x000002d9000a4860, EFLAGS=0x0000000000010206
+
+
+Register to memory mapping:
+
+RIP=0x000002d9000a4860 is at entry_point+32 in (nmethod*)0x000002d9000a4690
+Compiled method (c1) 3414425 9088 %     3       org.eclipse.jdt.internal.core.util.CommentRecorderParser::resetModifiers @ -131073 (17 bytes)
+ total in heap  [0x000002d9000a4690,0x000002d9000a4b08] = 1144
+ relocation     [0x000002d9000a47e8,0x000002d9000a4830] = 72
+ main code      [0x000002d9000a4840,0x000002d9000a49e0] = 416
+ stub code      [0x000002d9000a49e0,0x000002d9000a4a28] = 72
+ oops           [0x000002d9000a4a28,0x000002d9000a4a38] = 16
+ metadata       [0x000002d9000a4a38,0x000002d9000a4a48] = 16
+ scopes data    [0x000002d9000a4a48,0x000002d9000a4a78] = 48
+ scopes pcs     [0x000002d9000a4a78,0x000002d9000a4ae8] = 112
+ dependencies   [0x000002d9000a4ae8,0x000002d9000a4af0] = 8
+ nul chk table  [0x000002d9000a4af0,0x000002d9000a4b08] = 24
+RAX=0x00000001002ed030 is a pointer to class: 
+org.eclipse.jdt.internal.core.util.CommentRecorderParser {0x00000001002ed038}
+ - instance size:     51
+ - klass size:        616
+ - access:            public synchronized 
+ - state:             fully_initialized
+ - name:              'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+ - super:             'org/eclipse/jdt/internal/compiler/parser/Parser'
+ - sub:               'org/eclipse/jdt/internal/compiler/SourceElementParser'   
+ - arrays:            NULL
+ - methods:           Array<T>(0x000002d9789212f8)
+ - method ordering:   Array<T>(0x000002d977000018)
+ - default_methods:   Array<T>(0x0000000000000000)
+ - local interfaces:  Array<T>(0x000002d977000058)
+ - trans. interfaces: Array<T>(0x000002d97894ac70)
+ - constants:         constant pool [245] {0x000002d978920a78} for 'org/eclipse/jdt/internal/core/util/CommentRecorderParser' cache=0x000002d97a562590
+ - class loader data:  loader data: 0x000002d97caebf40 for instance a 'org/eclipse/osgi/internal/loader/EquinoxClassLoader'{0x00000000c0284800}
+ - source file:       'CommentRecorderParser.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x000002d977000028)
+ - nest members:     Array<T>(0x000002d977000028)
+ - permitted subclasses:     Array<T>(0x000002d977000028)
+ - java mirror:       a 'java/lang/Class'{0x00000000c0a2bd20} = 'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+ - vtable length      549  (start addr: 0x00000001002ed1f8)
+ - itable length      8 (start addr: 0x00000001002ee320)
+ - ---- static fields (1 words):
+ - protected static final 'CommentIncrement' 'I' @112 
+ - ---- non-static fields (98 words):
+ - public 'currentToken' 'I' @12 
+ - protected 'astLengthPtr' 'I' @16 
+ - protected 'astPtr' 'I' @20 
+ - protected 'dietInt' 'I' @24 
+ - protected 'endPosition' 'I' @28 
+ - protected 'endStatementPosition' 'I' @32 
+ - protected 'expressionLengthPtr' 'I' @36 
+ - protected 'expressionPtr' 'I' @40 
+ - protected 'rBracketPosition' 'I' @44 
+ - public 'firstToken' 'I' @48 
+ - protected 'typeAnnotationPtr' 'I' @52 
+ - protected 'typeAnnotationLengthPtr' 'I' @56 
+ - protected 'genericsIdentifiersLengthPtr' 'I' @60 
+ - protected 'genericsLengthPtr' 'I' @64 
+ - protected 'genericsPtr' 'I' @68 
+ - protected 'identifierLengthPtr' 'I' @72 
+ - protected 'identifierPtr' 'I' @76 
+ - protected 'intPtr' 'I' @80 
+ - public 'lastAct' 'I' @84 
+ - protected 'lastCheckPoint' 'I' @88 
+ - protected 'lastErrorEndPosition' 'I' @92 
+ - protected 'lastErrorEndPositionBeforeRecovery' 'I' @96 
+ - protected 'lastIgnoredToken' 'I' @100 
+ - protected 'nextIgnoredToken' 'I' @104 
+ - protected 'listLength' 'I' @108 
+ - protected 'listTypeParameterLength' 'I' @112 
+ - protected 'lParenPos' 'I' @116 
+ - protected 'rParenPos' 'I' @120 
+ - protected 'modifiers' 'I' @124 
+ - protected 'modifiersSourceStart' 'I' @128 
+ - protected 'annotationAsModifierSourceStart' 'I' @132 
+ - protected 'colonColonStart' 'I' @136 
+ - protected 'forStartPosition' 'I' @140 
+ - protected 'nestedType' 'I' @144 
+ - protected 'dimensions' 'I' @148 
+ - protected 'switchNestingLevel' 'I' @152 
+ - protected 'tryNestingLevel' 'I' @156 
+ - protected 'rBraceStart' 'I' @160 
+ - protected 'rBraceEnd' 'I' @164 
+ - protected 'rBraceSuccessorStart' 'I' @168 
+ - protected 'realBlockPtr' 'I' @172 
+ - protected 'recoveredStaticInitializerStart' 'I' @176 
+ - protected 'lastPosistion' 'I' @180 
+ - protected 'recoveredTypePtr' 'I' @184 
+ - protected 'nextTypeStart' 'I' @188 
+ - protected 'stateStackTop' 'I' @192 
+ - protected 'synchronizedBlockSourceStart' 'I' @196 
+ - protected 'lastJavadocEnd' 'I' @200 
+ - protected 'valueLambdaNestDepth' 'I' @204 
+ - protected 'unstackedAct' 'I' @208 
+ - protected 'diet' 'Z' @212 
+ - protected 'hasError' 'Z' @213 
+ - protected 'hasReportedError' 'Z' @214 
+ - protected 'ignoreNextOpeningBrace' 'Z' @215 
+ - protected 'ignoreNextClosingBrace' 'Z' @216 
+ - public 'switchWithTry' 'Z' @217 
+ - protected 'optimizeStringLiterals' 'Z' @218 
+ - public 'reportOnlyOneSyntaxError' 'Z' @219 
+ - public 'reportSyntaxErrorIsRequired' 'Z' @220 
+ - protected 'restartRecovery' 'Z' @221 
+ - protected 'annotationRecoveryActivated' 'Z' @222 
+ - public 'methodRecoveryActivated' 'Z' @223 
+ - protected 'statementRecoveryActivated' 'Z' @224 
+ - protected 'checkExternalizeStrings' 'Z' @225 
+ - protected 'recordStringLiterals' 'Z' @226 
+ - protected 'parsingJava8Plus' 'Z' @227 
+ - protected 'parsingJava9Plus' 'Z' @228 
+ - protected 'parsingJava14Plus' 'Z' @229 
+ - protected 'parsingJava15Plus' 'Z' @230 
+ - protected 'parsingJava17Plus' 'Z' @231 
+ - protected 'parsingJava18Plus' 'Z' @232 
+ - protected 'previewEnabled' 'Z' @233 
+ - protected 'parsingJava11Plus' 'Z' @234 
+ - private 'haltOnSyntaxError' 'Z' @235 
+ - private 'tolerateDefaultClassMethods' 'Z' @236 
+ - private 'processingLambdaParameterList' 'Z' @237 
+ - private 'expectTypeAnnotation' 'Z' @238 
+ - private 'reparsingLambdaExpression' 'Z' @239 
+ - protected 'caseFlagSet' 'Z' @240 
+ - public 'scanner' 'Lorg/eclipse/jdt/internal/compiler/parser/Scanner;' @244 
+ - protected 'astLengthStack' '[I' @248 
+ - protected 'astStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @252 
+ - public 'compilationUnit' 'Lorg/eclipse/jdt/internal/compiler/ast/CompilationUnitDeclaration;' @256 
+ - protected 'currentElement' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveredElement;' @260 
+ - protected 'expressionLengthStack' '[I' @264 
+ - protected 'expressionStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @268 
+ - protected 'typeAnnotationStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Annotation;' @272 
+ - protected 'typeAnnotationLengthStack' '[I' @276 
+ - protected 'genericsIdentifiersLengthStack' '[I' @280 
+ - protected 'genericsLengthStack' '[I' @284 
+ - protected 'genericsStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @288 
+ - protected 'identifierLengthStack' '[I' @292 
+ - protected 'identifierPositionStack' '[J' @296 
+ - protected 'identifierStack' '[[C' @300 
+ - protected 'intStack' '[I' @304 
+ - protected 'nestedMethod' '[I' @308 
+ - protected 'caseStartMap' 'Ljava/util/Map;' @312 
+ - 'noAstNodes' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @316 
+ - 'noExpressions' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @320 
+ - protected 'options' 'Lorg/eclipse/jdt/internal/compiler/impl/CompilerOptions;' @324 
+ - protected 'problemReporter' 'Lorg/eclipse/jdt/internal/compiler/problem/ProblemReporter;' @328 
+ - protected 'realBlockStack' '[I' @332 
+ - public 'referenceContext' 'Lorg/eclipse/jdt/internal/compiler/impl/ReferenceContext;' @336 
+ - protected 'recoveredTypes' '[Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @340 
+ - protected 'pendingRecoveredType' 'Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @344 
+ - public 'recoveryScanner' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveryScanner;' @348 
+ - protected 'stack' '[I' @352 
+ - protected 'variablesCounter' '[I' @356 
+ - public 'javadoc' 'Lorg/eclipse/jdt/internal/compiler/ast/Javadoc;' @360 
+ - public 'javadocParser' 'Lorg/eclipse/jdt/internal/compiler/parser/JavadocParser;' @364 
+ - public 'readManager' 'Lorg/eclipse/jdt/internal/compiler/ReadManager;' @368 
+ - private 'stateStackLengthStack' '[I' @372 
+ - private 'recordNestedMethodLevels' 'Ljava/util/Map;' @376 
+ - private 'recordPatternSwitches' 'Ljava/util/Map;' @380 
+ - private 'recordNullSwitches' 'Ljava/util/Map;' @384 
+ - private 'recordPatternLevel' 'Ljava/util/Map;' @388 
+ - 'commentPtr' 'I' @392 
+ - 'commentStops' '[I' @396 
+ - 'commentStarts' '[I' @400 
+ - non-static oop maps: 244-388 396-400 
+RBX={method} {0x000002d978922650} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+RCX=0x0000000000000007 is an unknown value
+RDX=0x00000000eb281110 is an oop: org.eclipse.jdt.internal.core.util.CommentRecorderParser 
+{0x00000000eb281110} - klass: 'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+ - ---- fields (total size 51 words):
+ - public 'currentToken' 'I' @12  0
+ - protected 'astLengthPtr' 'I' @16  -1 (ffffffff)
+ - protected 'astPtr' 'I' @20  -1 (ffffffff)
+ - protected 'dietInt' 'I' @24  0
+ - protected 'endPosition' 'I' @28  0
+ - protected 'endStatementPosition' 'I' @32  0
+ - protected 'expressionLengthPtr' 'I' @36  -1 (ffffffff)
+ - protected 'expressionPtr' 'I' @40  -1 (ffffffff)
+ - protected 'rBracketPosition' 'I' @44  0
+ - public 'firstToken' 'I' @48  0
+ - protected 'typeAnnotationPtr' 'I' @52  -1 (ffffffff)
+ - protected 'typeAnnotationLengthPtr' 'I' @56  -1 (ffffffff)
+ - protected 'genericsIdentifiersLengthPtr' 'I' @60  0
+ - protected 'genericsLengthPtr' 'I' @64  0
+ - protected 'genericsPtr' 'I' @68  0
+ - protected 'identifierLengthPtr' 'I' @72  -1 (ffffffff)
+ - protected 'identifierPtr' 'I' @76  -1 (ffffffff)
+ - protected 'intPtr' 'I' @80  -1 (ffffffff)
+ - public 'lastAct' 'I' @84  0
+ - protected 'lastCheckPoint' 'I' @88  0
+ - protected 'lastErrorEndPosition' 'I' @92  0
+ - protected 'lastErrorEndPositionBeforeRecovery' 'I' @96  -1 (ffffffff)
+ - protected 'lastIgnoredToken' 'I' @100  0
+ - protected 'nextIgnoredToken' 'I' @104  0
+ - protected 'listLength' 'I' @108  0
+ - protected 'listTypeParameterLength' 'I' @112  0
+ - protected 'lParenPos' 'I' @116  0
+ - protected 'rParenPos' 'I' @120  0
+ - protected 'modifiers' 'I' @124  0
+ - protected 'modifiersSourceStart' 'I' @128  0
+ - protected 'annotationAsModifierSourceStart' 'I' @132  -1 (ffffffff)
+ - protected 'colonColonStart' 'I' @136  -1 (ffffffff)
+ - protected 'forStartPosition' 'I' @140  0
+ - protected 'nestedType' 'I' @144  0
+ - protected 'dimensions' 'I' @148  0
+ - protected 'switchNestingLevel' 'I' @152  0
+ - protected 'tryNestingLevel' 'I' @156  0
+ - protected 'rBraceStart' 'I' @160  0
+ - protected 'rBraceEnd' 'I' @164  0
+ - protected 'rBraceSuccessorStart' 'I' @168  0
+ - protected 'realBlockPtr' 'I' @172  -1 (ffffffff)
+ - protected 'recoveredStaticInitializerStart' 'I' @176  0
+ - protected 'lastPosistion' 'I' @180  0
+ - protected 'recoveredTypePtr' 'I' @184  0
+ - protected 'nextTypeStart' 'I' @188  0
+ - protected 'stateStackTop' 'I' @192  0
+ - protected 'synchronizedBlockSourceStart' 'I' @196  0
+ - protected 'lastJavadocEnd' 'I' @200  0
+ - protected 'valueLambdaNestDepth' 'I' @204  -1 (ffffffff)
+ - protected 'unstackedAct' 'I' @208  18335 (479f)
+ - protected 'diet' 'Z' @212  true
+ - protected 'hasError' 'Z' @213  false
+ - protected 'hasReportedError' 'Z' @214  false
+ - protected 'ignoreNextOpeningBrace' 'Z' @215  false
+ - protected 'ignoreNextClosingBrace' 'Z' @216  false
+ - public 'switchWithTry' 'Z' @217  false
+ - protected 'optimizeStringLiterals' 'Z' @218  false
+ - public 'reportOnlyOneSyntaxError' 'Z' @219  false
+ - public 'reportSyntaxErrorIsRequired' 'Z' @220  true
+ - protected 'restartRecovery' 'Z' @221  false
+ - protected 'annotationRecoveryActivated' 'Z' @222  true
+ - public 'methodRecoveryActivated' 'Z' @223  false
+ - protected 'statementRecoveryActivated' 'Z' @224  false
+ - protected 'checkExternalizeStrings' 'Z' @225  false
+ - protected 'recordStringLiterals' 'Z' @226  true
+ - protected 'parsingJava8Plus' 'Z' @227  true
+ - protected 'parsingJava9Plus' 'Z' @228  true
+ - protected 'parsingJava14Plus' 'Z' @229  true
+ - protected 'parsingJava15Plus' 'Z' @230  true
+ - protected 'parsingJava17Plus' 'Z' @231  true
+ - protected 'parsingJava18Plus' 'Z' @232  false
+ - protected 'previewEnabled' 'Z' @233  false
+ - protected 'parsingJava11Plus' 'Z' @234  true
+ - private 'haltOnSyntaxError' 'Z' @235  false
+ - private 'tolerateDefaultClassMethods' 'Z' @236  false
+ - private 'processingLambdaParameterList' 'Z' @237  false
+ - private 'expectTypeAnnotation' 'Z' @238  false
+ - private 'reparsingLambdaExpression' 'Z' @239  false
+ - protected 'caseFlagSet' 'Z' @240  false
+ - public 'scanner' 'Lorg/eclipse/jdt/internal/compiler/parser/Scanner;' @244  a 'org/eclipse/jdt/internal/compiler/parser/Scanner'{0x00000000eb281bb0} (eb281bb0)
+ - protected 'astLengthStack' '[I' @248  [I{0x00000000eb2844a0} (eb2844a0)
+ - protected 'astStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @252  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb2812a8} (eb2812a8)
+ - public 'compilationUnit' 'Lorg/eclipse/jdt/internal/compiler/ast/CompilationUnitDeclaration;' @256  NULL (0)
+ - protected 'currentElement' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveredElement;' @260  NULL (0)
+ - protected 'expressionLengthStack' '[I' @264  [I{0x00000000eb284578} (eb284578)
+ - protected 'expressionStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @268  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281448} (eb281448)
+ - protected 'typeAnnotationStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Annotation;' @272  a 'org/eclipse/jdt/internal/compiler/ast/Annotation'[100] {0x00000000eb2815e8} (eb2815e8)
+ - protected 'typeAnnotationLengthStack' '[I' @276  [I{0x00000000eb284600} (eb284600)
+ - protected 'genericsIdentifiersLengthStack' '[I' @280  [I{0x00000000eb281788} (eb281788)
+ - protected 'genericsLengthStack' '[I' @284  [I{0x00000000eb2817c0} (eb2817c0)
+ - protected 'genericsStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @288  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[10] {0x00000000eb2817f8} (eb2817f8)
+ - protected 'identifierLengthStack' '[I' @292  [I{0x00000000eb2847e8} (eb2847e8)
+ - protected 'identifierPositionStack' '[J' @296  [J{0x00000000eb284980} (eb284980)
+ - protected 'identifierStack' '[[C' @300  a {type array char}[30] {0x00000000eb284760} (eb284760)
+ - protected 'intStack' '[I' @304  [I{0x00000000eb284688} (eb284688)
+ - protected 'nestedMethod' '[I' @308  [I{0x00000000eb284870} (eb284870)
+ - protected 'caseStartMap' 'Ljava/util/Map;' @312  a 'java/util/HashMap'{0x00000000eb281830} (eb281830)
+ - 'noAstNodes' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @316  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb281860} (eb281860)
+ - 'noExpressions' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @320  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281a00} (eb281a00)
+ - protected 'options' 'Lorg/eclipse/jdt/internal/compiler/impl/CompilerOptions;' @324  a 'org/eclipse/jdt/internal/compiler/impl/CompilerOptions'{0x00000000eb26d628} (eb26d628)
+ - protected 'problemReporter' 'Lorg/eclipse/jdt/internal/compiler/problem/ProblemReporter;' @328  a 'org/eclipse/jdt/internal/compiler/problem/ProblemReporter'{0x00000000eb27a4c8} (eb27a4c8)
+ - protected 'realBlockStack' '[I' @332  [I{0x00000000eb2848f8} (eb2848f8)
+ - public 'referenceContext' 'Lorg/eclipse/jdt/internal/compiler/impl/ReferenceContext;' @336  NULL (0)
+ - protected 'recoveredTypes' '[Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @340  NULL (0)
+ - protected 'pendingRecoveredType' 'Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @344  NULL (0)
+ - public 'recoveryScanner' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveryScanner;' @348  NULL (0)
+ - protected 'stack' '[I' @352  [I{0x00000000eb282018} (eb282018)
+ - protected 'variablesCounter' '[I' @356  [I{0x00000000eb284a80} (eb284a80)
+ - public 'javadoc' 'Lorg/eclipse/jdt/internal/compiler/ast/Javadoc;' @360  NULL (0)
+ - public 'javadocParser' 'Lorg/eclipse/jdt/internal/compiler/parser/JavadocParser;' @364  a 'org/eclipse/jdt/internal/compiler/parser/JavadocParser'{0x00000000eb284bc8} (eb284bc8)
+ - public 'readManager' 'Lorg/eclipse/jdt/internal/compiler/ReadManager;' @368  NULL (0)
+ - private 'stateStackLengthStack' '[I' @372  [I{0x00000000eb281ba0} (eb281ba0)
+ - private 'recordNestedMethodLevels' 'Ljava/util/Map;' @376  a 'java/util/HashMap'{0x00000000eb284b08} (eb284b08)
+ - private 'recordPatternSwitches' 'Ljava/util/Map;' @380  a 'java/util/HashMap'{0x00000000eb284b38} (eb284b38)
+ - private 'recordNullSwitches' 'Ljava/util/Map;' @384  a 'java/util/HashMap'{0x00000000eb284b68} (eb284b68)
+ - private 'recordPatternLevel' 'Ljava/util/Map;' @388  a 'java/util/HashMap'{0x00000000eb284b98} (eb284b98)
+ - 'commentPtr' 'I' @392  -1 (ffffffff)
+ - 'commentStops' '[I' @396  [I{0x00000000eb285588} (eb285588)
+ - 'commentStarts' '[I' @400  [I{0x00000000eb2855c0} (eb2855c0)
+RSP=0x000000f25fdfe288 is pointing into the stack for thread: 0x000002d97c306820
+RBP=0x000000f25fdfe358 is pointing into the stack for thread: 0x000002d97c306820
+RSI=0x00000000eb281110 is an oop: org.eclipse.jdt.internal.core.util.CommentRecorderParser 
+{0x00000000eb281110} - klass: 'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+ - ---- fields (total size 51 words):
+ - public 'currentToken' 'I' @12  0
+ - protected 'astLengthPtr' 'I' @16  -1 (ffffffff)
+ - protected 'astPtr' 'I' @20  -1 (ffffffff)
+ - protected 'dietInt' 'I' @24  0
+ - protected 'endPosition' 'I' @28  0
+ - protected 'endStatementPosition' 'I' @32  0
+ - protected 'expressionLengthPtr' 'I' @36  -1 (ffffffff)
+ - protected 'expressionPtr' 'I' @40  -1 (ffffffff)
+ - protected 'rBracketPosition' 'I' @44  0
+ - public 'firstToken' 'I' @48  0
+ - protected 'typeAnnotationPtr' 'I' @52  -1 (ffffffff)
+ - protected 'typeAnnotationLengthPtr' 'I' @56  -1 (ffffffff)
+ - protected 'genericsIdentifiersLengthPtr' 'I' @60  0
+ - protected 'genericsLengthPtr' 'I' @64  0
+ - protected 'genericsPtr' 'I' @68  0
+ - protected 'identifierLengthPtr' 'I' @72  -1 (ffffffff)
+ - protected 'identifierPtr' 'I' @76  -1 (ffffffff)
+ - protected 'intPtr' 'I' @80  -1 (ffffffff)
+ - public 'lastAct' 'I' @84  0
+ - protected 'lastCheckPoint' 'I' @88  0
+ - protected 'lastErrorEndPosition' 'I' @92  0
+ - protected 'lastErrorEndPositionBeforeRecovery' 'I' @96  -1 (ffffffff)
+ - protected 'lastIgnoredToken' 'I' @100  0
+ - protected 'nextIgnoredToken' 'I' @104  0
+ - protected 'listLength' 'I' @108  0
+ - protected 'listTypeParameterLength' 'I' @112  0
+ - protected 'lParenPos' 'I' @116  0
+ - protected 'rParenPos' 'I' @120  0
+ - protected 'modifiers' 'I' @124  0
+ - protected 'modifiersSourceStart' 'I' @128  0
+ - protected 'annotationAsModifierSourceStart' 'I' @132  -1 (ffffffff)
+ - protected 'colonColonStart' 'I' @136  -1 (ffffffff)
+ - protected 'forStartPosition' 'I' @140  0
+ - protected 'nestedType' 'I' @144  0
+ - protected 'dimensions' 'I' @148  0
+ - protected 'switchNestingLevel' 'I' @152  0
+ - protected 'tryNestingLevel' 'I' @156  0
+ - protected 'rBraceStart' 'I' @160  0
+ - protected 'rBraceEnd' 'I' @164  0
+ - protected 'rBraceSuccessorStart' 'I' @168  0
+ - protected 'realBlockPtr' 'I' @172  -1 (ffffffff)
+ - protected 'recoveredStaticInitializerStart' 'I' @176  0
+ - protected 'lastPosistion' 'I' @180  0
+ - protected 'recoveredTypePtr' 'I' @184  0
+ - protected 'nextTypeStart' 'I' @188  0
+ - protected 'stateStackTop' 'I' @192  0
+ - protected 'synchronizedBlockSourceStart' 'I' @196  0
+ - protected 'lastJavadocEnd' 'I' @200  0
+ - protected 'valueLambdaNestDepth' 'I' @204  -1 (ffffffff)
+ - protected 'unstackedAct' 'I' @208  18335 (479f)
+ - protected 'diet' 'Z' @212  true
+ - protected 'hasError' 'Z' @213  false
+ - protected 'hasReportedError' 'Z' @214  false
+ - protected 'ignoreNextOpeningBrace' 'Z' @215  false
+ - protected 'ignoreNextClosingBrace' 'Z' @216  false
+ - public 'switchWithTry' 'Z' @217  false
+ - protected 'optimizeStringLiterals' 'Z' @218  false
+ - public 'reportOnlyOneSyntaxError' 'Z' @219  false
+ - public 'reportSyntaxErrorIsRequired' 'Z' @220  true
+ - protected 'restartRecovery' 'Z' @221  false
+ - protected 'annotationRecoveryActivated' 'Z' @222  true
+ - public 'methodRecoveryActivated' 'Z' @223  false
+ - protected 'statementRecoveryActivated' 'Z' @224  false
+ - protected 'checkExternalizeStrings' 'Z' @225  false
+ - protected 'recordStringLiterals' 'Z' @226  true
+ - protected 'parsingJava8Plus' 'Z' @227  true
+ - protected 'parsingJava9Plus' 'Z' @228  true
+ - protected 'parsingJava14Plus' 'Z' @229  true
+ - protected 'parsingJava15Plus' 'Z' @230  true
+ - protected 'parsingJava17Plus' 'Z' @231  true
+ - protected 'parsingJava18Plus' 'Z' @232  false
+ - protected 'previewEnabled' 'Z' @233  false
+ - protected 'parsingJava11Plus' 'Z' @234  true
+ - private 'haltOnSyntaxError' 'Z' @235  false
+ - private 'tolerateDefaultClassMethods' 'Z' @236  false
+ - private 'processingLambdaParameterList' 'Z' @237  false
+ - private 'expectTypeAnnotation' 'Z' @238  false
+ - private 'reparsingLambdaExpression' 'Z' @239  false
+ - protected 'caseFlagSet' 'Z' @240  false
+ - public 'scanner' 'Lorg/eclipse/jdt/internal/compiler/parser/Scanner;' @244  a 'org/eclipse/jdt/internal/compiler/parser/Scanner'{0x00000000eb281bb0} (eb281bb0)
+ - protected 'astLengthStack' '[I' @248  [I{0x00000000eb2844a0} (eb2844a0)
+ - protected 'astStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @252  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb2812a8} (eb2812a8)
+ - public 'compilationUnit' 'Lorg/eclipse/jdt/internal/compiler/ast/CompilationUnitDeclaration;' @256  NULL (0)
+ - protected 'currentElement' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveredElement;' @260  NULL (0)
+ - protected 'expressionLengthStack' '[I' @264  [I{0x00000000eb284578} (eb284578)
+ - protected 'expressionStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @268  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281448} (eb281448)
+ - protected 'typeAnnotationStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Annotation;' @272  a 'org/eclipse/jdt/internal/compiler/ast/Annotation'[100] {0x00000000eb2815e8} (eb2815e8)
+ - protected 'typeAnnotationLengthStack' '[I' @276  [I{0x00000000eb284600} (eb284600)
+ - protected 'genericsIdentifiersLengthStack' '[I' @280  [I{0x00000000eb281788} (eb281788)
+ - protected 'genericsLengthStack' '[I' @284  [I{0x00000000eb2817c0} (eb2817c0)
+ - protected 'genericsStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @288  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[10] {0x00000000eb2817f8} (eb2817f8)
+ - protected 'identifierLengthStack' '[I' @292  [I{0x00000000eb2847e8} (eb2847e8)
+ - protected 'identifierPositionStack' '[J' @296  [J{0x00000000eb284980} (eb284980)
+ - protected 'identifierStack' '[[C' @300  a {type array char}[30] {0x00000000eb284760} (eb284760)
+ - protected 'intStack' '[I' @304  [I{0x00000000eb284688} (eb284688)
+ - protected 'nestedMethod' '[I' @308  [I{0x00000000eb284870} (eb284870)
+ - protected 'caseStartMap' 'Ljava/util/Map;' @312  a 'java/util/HashMap'{0x00000000eb281830} (eb281830)
+ - 'noAstNodes' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @316  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb281860} (eb281860)
+ - 'noExpressions' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @320  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281a00} (eb281a00)
+ - protected 'options' 'Lorg/eclipse/jdt/internal/compiler/impl/CompilerOptions;' @324  a 'org/eclipse/jdt/internal/compiler/impl/CompilerOptions'{0x00000000eb26d628} (eb26d628)
+ - protected 'problemReporter' 'Lorg/eclipse/jdt/internal/compiler/problem/ProblemReporter;' @328  a 'org/eclipse/jdt/internal/compiler/problem/ProblemReporter'{0x00000000eb27a4c8} (eb27a4c8)
+ - protected 'realBlockStack' '[I' @332  [I{0x00000000eb2848f8} (eb2848f8)
+ - public 'referenceContext' 'Lorg/eclipse/jdt/internal/compiler/impl/ReferenceContext;' @336  NULL (0)
+ - protected 'recoveredTypes' '[Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @340  NULL (0)
+ - protected 'pendingRecoveredType' 'Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @344  NULL (0)
+ - public 'recoveryScanner' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveryScanner;' @348  NULL (0)
+ - protected 'stack' '[I' @352  [I{0x00000000eb282018} (eb282018)
+ - protected 'variablesCounter' '[I' @356  [I{0x00000000eb284a80} (eb284a80)
+ - public 'javadoc' 'Lorg/eclipse/jdt/internal/compiler/ast/Javadoc;' @360  NULL (0)
+ - public 'javadocParser' 'Lorg/eclipse/jdt/internal/compiler/parser/JavadocParser;' @364  a 'org/eclipse/jdt/internal/compiler/parser/JavadocParser'{0x00000000eb284bc8} (eb284bc8)
+ - public 'readManager' 'Lorg/eclipse/jdt/internal/compiler/ReadManager;' @368  NULL (0)
+ - private 'stateStackLengthStack' '[I' @372  [I{0x00000000eb281ba0} (eb281ba0)
+ - private 'recordNestedMethodLevels' 'Ljava/util/Map;' @376  a 'java/util/HashMap'{0x00000000eb284b08} (eb284b08)
+ - private 'recordPatternSwitches' 'Ljava/util/Map;' @380  a 'java/util/HashMap'{0x00000000eb284b38} (eb284b38)
+ - private 'recordNullSwitches' 'Ljava/util/Map;' @384  a 'java/util/HashMap'{0x00000000eb284b68} (eb284b68)
+ - private 'recordPatternLevel' 'Ljava/util/Map;' @388  a 'java/util/HashMap'{0x00000000eb284b98} (eb284b98)
+ - 'commentPtr' 'I' @392  -1 (ffffffff)
+ - 'commentStops' '[I' @396  [I{0x00000000eb285588} (eb285588)
+ - 'commentStarts' '[I' @400  [I{0x00000000eb2855c0} (eb2855c0)
+RDI=0x000002d920158b38 is pointing into metadata
+R8 =0x0000000000000001 is an unknown value
+R9 =0x000002d97c306820 is a thread
+R10=0x0000000100326a70 is a pointer to class: 
+org.eclipse.jdt.internal.compiler.impl.CompilerOptions {0x0000000100326a78}
+ - instance size:     24
+ - klass size:        76
+ - access:            public synchronized 
+ - state:             fully_initialized
+ - name:              'org/eclipse/jdt/internal/compiler/impl/CompilerOptions'
+ - super:             'java/lang/Object'
+ - sub:               
+ - arrays:            NULL
+ - methods:           Array<T>(0x000002d978cd7728)
+ - method ordering:   Array<T>(0x000002d977000018)
+ - default_methods:   Array<T>(0x0000000000000000)
+ - local interfaces:  Array<T>(0x000002d977000058)
+ - trans. interfaces: Array<T>(0x000002d977000058)
+ - constants:         constant pool [1733]/operands[20] {0x000002d978cd4008} for 'org/eclipse/jdt/internal/compiler/impl/CompilerOptions' cache=0x000002d978cdcca8
+ - class loader data:  loader data: 0x000002d97caed340 for instance a 'org/eclipse/osgi/internal/loader/EquinoxClassLoader'{0x00000000c03b28e8}
+ - source file:       'CompilerOptions.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x000002d978cdcc90)
+ - nest members:     Array<T>(0x000002d977000028)
+ - permitted subclasses:     Array<T>(0x000002d977000028)
+ - java mirror:       a 'java/lang/Class'{0x00000000c0ca1990} = 'org/eclipse/jdt/internal/compiler/impl/CompilerOptions'
+ - vtable length      16  (start addr: 0x0000000100326c38)
+ - itable length      2 (start addr: 0x0000000100326cb8)
+ - ---- static fields (141 words):
+ - public static final 'OPTION_LocalVariableAttribute' 'Ljava/lang/String;' @112 
+ - public static final 'OPTION_LineNumberAttribute' 'Ljava/lang/String;' @116 
+ - public static final 'OPTION_SourceFileAttribute' 'Ljava/lang/String;' @120 
+ - public static final 'OPTION_PreserveUnusedLocal' 'Ljava/lang/String;' @124 
+ - public static final 'OPTION_MethodParametersAttribute' 'Ljava/lang/String;' @128 
+ - public static final 'OPTION_LambdaGenericSignature' 'Ljava/lang/String;' @132 
+ - public static final 'OPTION_DocCommentSupport' 'Ljava/lang/String;' @136 
+ - public static final 'OPTION_ReportMethodWithConstructorName' 'Ljava/lang/String;' @140 
+ - public static final 'OPTION_ReportOverridingPackageDefaultMethod' 'Ljava/lang/String;' @144 
+ - public static final 'OPTION_ReportDeprecation' 'Ljava/lang/String;' @148 
+ - public static final 'OPTION_ReportTerminalDeprecation' 'Ljava/lang/String;' @152 
+ - public static final 'OPTION_ReportDeprecationInDeprecatedCode' 'Ljava/lang/String;' @156 
+ - public static final 'OPTION_ReportDeprecationWhenOverridingDeprecatedMethod' 'Ljava/lang/String;' @160 
+ - public static final 'OPTION_ReportHiddenCatchBlock' 'Ljava/lang/String;' @164 
+ - public static final 'OPTION_ReportUnusedLocal' 'Ljava/lang/String;' @168 
+ - public static final 'OPTION_ReportUnusedParameter' 'Ljava/lang/String;' @172 
+ - public static final 'OPTION_ReportUnusedExceptionParameter' 'Ljava/lang/String;' @176 
+ - public static final 'OPTION_ReportUnusedParameterWhenImplementingAbstract' 'Ljava/lang/String;' @180 
+ - public static final 'OPTION_ReportUnusedParameterWhenOverridingConcrete' 'Ljava/lang/String;' @184 
+ - public static final 'OPTION_ReportUnusedParameterIncludeDocCommentReference' 'Ljava/lang/String;' @188 
+ - public static final 'OPTION_ReportUnusedImport' 'Ljava/lang/String;' @192 
+ - public static final 'OPTION_ReportSyntheticAccessEmulation' 'Ljava/lang/String;' @196 
+ - public static final 'OPTION_ReportNoEffectAssignment' 'Ljava/lang/String;' @200 
+ - public static final 'OPTION_ReportLocalVariableHiding' 'Ljava/lang/String;' @204 
+ - public static final 'OPTION_ReportSpecialParameterHidingField' 'Ljava/lang/String;' @208 
+ - public static final 'OPTION_ReportFieldHiding' 'Ljava/lang/String;' @212 
+ - public static final 'OPTION_ReportTypeParameterHiding' 'Ljava/lang/String;' @216 
+ - public static final 'OPTION_ReportPossibleAccidentalBooleanAssignment' 'Ljava/lang/String;' @220 
+ - public static final 'OPTION_ReportNonExternalizedStringLiteral' 'Ljava/lang/String;' @224 
+ - public static final 'OPTION_ReportIncompatibleNonInheritedInterfaceMethod' 'Ljava/lang/String;' @228 
+ - public static final 'OPTION_ReportUnusedPrivateMember' 'Ljava/lang/String;' @232 
+ - public static final 'OPTION_ReportNoImplicitStringConversion' 'Ljava/lang/String;' @236 
+ - public static final 'OPTION_ReportAssertIdentifier' 'Ljava/lang/String;' @240 
+ - public static final 'OPTION_ReportEnumIdentifier' 'Ljava/lang/String;' @244 
+ - public static final 'OPTION_ReportNonStaticAccessToStatic' 'Ljava/lang/String;' @248 
+ - public static final 'OPTION_ReportIndirectStaticAccess' 'Ljava/lang/String;' @252 
+ - public static final 'OPTION_ReportEmptyStatement' 'Ljava/lang/String;' @256 
+ - public static final 'OPTION_ReportUnnecessaryTypeCheck' 'Ljava/lang/String;' @260 
+ - public static final 'OPTION_ReportUnnecessaryElse' 'Ljava/lang/String;' @264 
+ - public static final 'OPTION_ReportUndocumentedEmptyBlock' 'Ljava/lang/String;' @268 
+ - public static final 'OPTION_ReportInvalidJavadoc' 'Ljava/lang/String;' @272 
+ - public static final 'OPTION_ReportInvalidJavadocTags' 'Ljava/lang/String;' @276 
+ - public static final 'OPTION_ReportInvalidJavadocTagsDeprecatedRef' 'Ljava/lang/String;' @280 
+ - public static final 'OPTION_ReportInvalidJavadocTagsNotVisibleRef' 'Ljava/lang/String;' @284 
+ - public static final 'OPTION_ReportInvalidJavadocTagsVisibility' 'Ljava/lang/String;' @288 
+ - public static final 'OPTION_ReportMissingJavadocTags' 'Ljava/lang/String;' @292 
+ - public static final 'OPTION_ReportMissingJavadocTagsVisibility' 'Ljava/lang/String;' @296 
+ - public static final 'OPTION_ReportMissingJavadocTagsOverriding' 'Ljava/lang/String;' @300 
+ - public static final 'OPTION_ReportMissingJavadocTagsMethodTypeParameters' 'Ljava/lang/String;' @304 
+ - public static final 'OPTION_ReportMissingJavadocComments' 'Ljava/lang/String;' @308 
+ - public static final 'OPTION_ReportMissingJavadocTagDescription' 'Ljava/lang/String;' @312 
+ - public static final 'OPTION_ReportMissingJavadocCommentsVisibility' 'Ljava/lang/String;' @316 
+ - public static final 'OPTION_ReportMissingJavadocCommentsOverriding' 'Ljava/lang/String;' @320 
+ - public static final 'OPTION_ReportFinallyBlockNotCompletingNormally' 'Ljava/lang/String;' @324 
+ - public static final 'OPTION_ReportUnusedDeclaredThrownException' 'Ljava/lang/String;' @328 
+ - public static final 'OPTION_ReportUnusedDeclaredThrownExceptionWhenOverriding' 'Ljava/lang/String;' @332 
+ - public static final 'OPTION_ReportUnusedDeclaredThrownExceptionIncludeDocCommentReference' 'Ljava/lang/String;' @336 
+ - public static final 'OPTION_ReportUnusedDeclaredThrownExceptionExemptExceptionAndThrowable' 'Ljava/lang/String;' @340 
+ - public static final 'OPTION_ReportUnqualifiedFieldAccess' 'Ljava/lang/String;' @344 
+ - public static final 'OPTION_ReportUnavoidableGenericTypeProblems' 'Ljava/lang/String;' @348 
+ - public static final 'OPTION_ReportUncheckedTypeOperation' 'Ljava/lang/String;' @352 
+ - public static final 'OPTION_ReportRawTypeReference' 'Ljava/lang/String;' @356 
+ - public static final 'OPTION_ReportFinalParameterBound' 'Ljava/lang/String;' @360 
+ - public static final 'OPTION_ReportMissingSerialVersion' 'Ljava/lang/String;' @364 
+ - public static final 'OPTION_ReportVarargsArgumentNeedCast' 'Ljava/lang/String;' @368 
+ - public static final 'OPTION_ReportUnusedTypeArgumentsForMethodInvocation' 'Ljava/lang/String;' @372 
+ - public static final 'OPTION_Source' 'Ljava/lang/String;' @376 
+ - public static final 'OPTION_TargetPlatform' 'Ljava/lang/String;' @380 
+ - public static final 'OPTION_Compliance' 'Ljava/lang/String;' @384 
+ - public static final 'OPTION_Release' 'Ljava/lang/String;' @388 
+ - public static final 'OPTION_Encoding' 'Ljava/lang/String;' @392 
+ - public static final 'OPTION_MaxProblemPerUnit' 'Ljava/lang/String;' @396 
+ - public static final 'OPTION_TaskTags' 'Ljava/lang/String;' @400 
+ - public static final 'OPTION_TaskPriorities' 'Ljava/lang/String;' @404 
+ - public static final 'OPTION_TaskCaseSensitive' 'Ljava/lang/String;' @408 
+ - public static final 'OPTION_InlineJsr' 'Ljava/lang/String;' @412 
+ - public static final 'OPTION_ShareCommonFinallyBlocks' 'Ljava/lang/String;' @416 
+ - public static final 'OPTION_ReportNullReference' 'Ljava/lang/String;' @420 
+ - public static final 'OPTION_ReportPotentialNullReference' 'Ljava/lang/String;' @424 
+ - public static final 'OPTION_ReportRedundantNullCheck' 'Ljava/lang/String;' @428 
+ - public static final 'OPTION_ReportAutoboxing' 'Ljava/lang/String;' @432 
+ - public static final 'OPTION_ReportAnnotationSuperInterface' 'Ljava/lang/String;' @436 
+ - public static final 'OPTION_ReportMissingOverrideAnnotation' 'Ljava/lang/String;' @440 
+ - public static final 'OPTION_ReportMissingOverrideAnnotationForInterfaceMethodImplementation' 'Ljava/lang/String;' @444 
+ - public static final 'OPTION_ReportMissingDeprecatedAnnotation' 'Ljava/lang/String;' @448 
+ - public static final 'OPTION_ReportIncompleteEnumSwitch' 'Ljava/lang/String;' @452 
+ - public static final 'OPTION_ReportMissingEnumCaseDespiteDefault' 'Ljava/lang/String;' @456 
+ - public static final 'OPTION_ReportMissingDefaultCase' 'Ljava/lang/String;' @460 
+ - public static final 'OPTION_ReportForbiddenReference' 'Ljava/lang/String;' @464 
+ - public static final 'OPTION_ReportDiscouragedReference' 'Ljava/lang/String;' @468 
+ - public static final 'OPTION_SuppressWarnings' 'Ljava/lang/String;' @472 
+ - public static final 'OPTION_SuppressOptionalErrors' 'Ljava/lang/String;' @476 
+ - public static final 'OPTION_ReportUnhandledWarningToken' 'Ljava/lang/String;' @480 
+ - public static final 'OPTION_ReportUnusedTypeParameter' 'Ljava/lang/String;' @484 
+ - public static final 'OPTION_ReportUnusedWarningToken' 'Ljava/lang/String;' @488 
+ - public static final 'OPTION_ReportUnusedLabel' 'Ljava/lang/String;' @492 
+ - public static final 'OPTION_FatalOptionalError' 'Ljava/lang/String;' @496 
+ - public static final 'OPTION_ReportParameterAssignment' 'Ljava/lang/String;' @500 
+ - public static final 'OPTION_ReportFallthroughCase' 'Ljava/lang/String;' @504 
+ - public static final 'OPTION_ReportOverridingMethodWithoutSuperInvocation' 'Ljava/lang/String;' @508 
+ - public static final 'OPTION_GenerateClassFiles' 'Ljava/lang/String;' @512 
+ - public static final 'OPTION_Process_Annotations' 'Ljava/lang/String;' @516 
+ - public static final 'OPTION_Store_Annotations' 'Ljava/lang/String;' @520 
+ - public static final 'OPTION_EmulateJavacBug8031744' 'Ljava/lang/String;' @524 
+ - public static final 'OPTION_ReportRedundantSuperinterface' 'Ljava/lang/String;' @528 
+ - public static final 'OPTION_ReportComparingIdentical' 'Ljava/lang/String;' @532 
+ - public static final 'OPTION_ReportMissingSynchronizedOnInheritedMethod' 'Ljava/lang/String;' @536 
+ - public static final 'OPTION_ReportMissingHashCodeMethod' 'Ljava/lang/String;' @540 
+ - public static final 'OPTION_ReportDeadCode' 'Ljava/lang/String;' @544 
+ - public static final 'OPTION_ReportDeadCodeInTrivialIfStatement' 'Ljava/lang/String;' @548 
+ - public static final 'OPTION_ReportTasks' 'Ljava/lang/String;' @552 
+ - public static final 'OPTION_ReportUnusedObjectAllocation' 'Ljava/lang/String;' @556 
+ - public static final 'OPTION_IncludeNullInfoFromAsserts' 'Ljava/lang/String;' @560 
+ - public static final 'OPTION_ReportMethodCanBeStatic' 'Ljava/lang/String;' @564 
+ - public static final 'OPTION_ReportMethodCanBePotentiallyStatic' 'Ljava/lang/String;' @568 
+ - public static final 'OPTION_ReportRedundantSpecificationOfTypeArguments' 'Ljava/lang/String;' @572 
+ - public static final 'OPTION_ReportUnclosedCloseable' 'Ljava/lang/String;' @576 
+ - public static final 'OPTION_ReportPotentiallyUnclosedCloseable' 'Ljava/lang/String;' @580 
+ - public static final 'OPTION_ReportExplicitlyClosedAutoCloseable' 'Ljava/lang/String;' @584 
+ - public static final 'OPTION_ReportNullSpecViolation' 'Ljava/lang/String;' @588 
+ - public static final 'OPTION_ReportNullAnnotationInferenceConflict' 'Ljava/lang/String;' @592 
+ - public static final 'OPTION_ReportNullUncheckedConversion' 'Ljava/lang/String;' @596 
+ - public static final 'OPTION_ReportRedundantNullAnnotation' 'Ljava/lang/String;' @600 
+ - public static final 'OPTION_AnnotationBasedNullAnalysis' 'Ljava/lang/String;' @604 
+ - public static final 'OPTION_NullableAnnotationName' 'Ljava/lang/String;' @608 
+ - public static final 'OPTION_NonNullAnnotationName' 'Ljava/lang/String;' @612 
+ - public static final 'OPTION_NonNullByDefaultAnnotationName' 'Ljava/lang/String;' @616 
+ - public static final 'OPTION_NullableAnnotationSecondaryNames' 'Ljava/lang/String;' @620 
+ - public static final 'OPTION_NonNullAnnotationSecondaryNames' 'Ljava/lang/String;' @624 
+ - public static final 'OPTION_NonNullByDefaultAnnotationSecondaryNames' 'Ljava/lang/String;' @628 
+ - public static final 'OPTION_ReportUninternedIdentityComparison' 'Ljava/lang/String;' @632 
+ - static final 'DEFAULT_NULLABLE_ANNOTATION_NAME' '[[C' @636 
+ - static final 'DEFAULT_NONNULL_ANNOTATION_NAME' '[[C' @640 
+ - static final 'DEFAULT_NONNULLBYDEFAULT_ANNOTATION_NAME' '[[C' @644 
+ - public static final 'OPTION_ReportMissingNonNullByDefaultAnnotation' 'Ljava/lang/String;' @648 
+ - public static final 'OPTION_SyntacticNullAnalysisForFields' 'Ljava/lang/String;' @652 
+ - public static final 'OPTION_InheritNullAnnotations' 'Ljava/lang/String;' @656 
+ - public static final 'OPTION_ReportNonnullParameterAnnotationDropped' 'Ljava/lang/String;' @660 
+ - public static final 'OPTION_PessimisticNullAnalysisForFreeTypeVariables' 'Ljava/lang/String;' @664 
+ - public static final 'OPTION_ReportNonNullTypeVariableFromLegacyInvocation' 'Ljava/lang/String;' @668 
+ - public static final 'OPTION_ReportAnnotatedTypeArgumentToUnannotated' 'Ljava/lang/String;' @672 
+ - public static final 'OPTION_ReportUnlikelyCollectionMethodArgumentType' 'Ljava/lang/String;' @676 
+ - public static final 'OPTION_ReportUnlikelyCollectionMethodArgumentTypeStrict' 'Ljava/lang/String;' @680 
+ - public static final 'OPTION_ReportUnlikelyEqualsArgumentType' 'Ljava/lang/String;' @684 
+ - public static final 'OPTION_ReportAPILeak' 'Ljava/lang/String;' @688 
+ - public static final 'OPTION_ReportUnstableAutoModuleName' 'Ljava/lang/String;' @692 
+ - public static final 'OPTION_EnablePreviews' 'Ljava/lang/String;' @696 
+ - public static final 'OPTION_ReportPreviewFeatures' 'Ljava/lang/String;' @700 
+ - public static final 'OPTION_ReportSuppressWarningNotFullyAnalysed' 'Ljava/lang/String;' @704 
+ - public static final 'OPTION_JdtDebugCompileMode' 'Ljava/lang/String;' @708 
+ - public static final 'OPTION_IgnoreUnnamedModuleForSplitPackage' 'Ljava/lang/String;' @712 
+ - public static final 'OPTION_UseStringConcatFactory' 'Ljava/lang/String;' @716 
+ - public static final 'GENERATE' 'Ljava/lang/String;' @720 
+ - public static final 'DO_NOT_GENERATE' 'Ljava/lang/String;' @724 
+ - public static final 'PRESERVE' 'Ljava/lang/String;' @728 
+ - public static final 'OPTIMIZE_OUT' 'Ljava/lang/String;' @732 
+ - public static final 'VERSION_1_1' 'Ljava/lang/String;' @736 
+ - public static final 'VERSION_1_2' 'Ljava/lang/String;' @740 
+ - public static final 'VERSION_1_3' 'Ljava/lang/String;' @744 
+ - public static final 'VERSION_1_4' 'Ljava/lang/String;' @748 
+ - public static final 'VERSION_JSR14' 'Ljava/lang/String;' @752 
+ - public static final 'VERSION_CLDC1_1' 'Ljava/lang/String;' @756 
+ - public static final 'VERSION_1_5' 'Ljava/lang/String;' @760 
+ - public static final 'VERSION_1_6' 'Ljava/lang/String;' @764 
+ - public static final 'VERSION_1_7' 'Ljava/lang/String;' @768 
+ - public static final 'VERSION_1_8' 'Ljava/lang/String;' @772 
+ - public static final 'VERSION_9' 'Ljava/lang/String;' @776 
+ - public static final 'VERSION_10' 'Ljava/lang/String;' @780 
+ - public static final 'VERSION_11' 'Ljava/lang/String;' @784 
+ - public static final 'VERSION_12' 'Ljava/lang/String;' @788 
+ - public static final 'VERSION_13' 'Ljava/lang/String;' @792 
+ - public static final 'VERSION_14' 'Ljava/lang/String;' @796 
+ - public static final 'VERSION_15' 'Ljava/lang/String;' @800 
+ - public static final 'VERSION_16' 'Ljava/lang/String;' @804 
+ - public static final 'VERSION_17' 'Ljava/lang/String;' @808 
+ - public static final 'VERSION_18' 'Ljava/lang/String;' @812 
+ - public static final 'VERSION_19' 'Ljava/lang/String;' @816 
+ - public static final 'VERSION_20' 'Ljava/lang/String;' @820 
+ - public static final 'VERSION_21' 'Ljava/lang/String;' @824 
+ - public static final 'ERROR' 'Ljava/lang/String;' @828 
+ - public static final 'WARNING' 'Ljava/lang/String;' @832 
+ - public static final 'INFO' 'Ljava/lang/String;' @836 
+ - public static final 'IGNORE' 'Ljava/lang/String;' @840 
+ - public static final 'ENABLED' 'Ljava/lang/String;' @844 
+ - public static final 'DISABLED' 'Ljava/lang/String;' @848 
+ - public static final 'PUBLIC' 'Ljava/lang/String;' @852 
+ - public static final 'PROTECTED' 'Ljava/lang/String;' @856 
+ - public static final 'DEFAULT' 'Ljava/lang/String;' @860 
+ - public static final 'PRIVATE' 'Ljava/lang/String;' @864 
+ - public static final 'RETURN_TAG' 'Ljava/lang/String;' @868 
+ - public static final 'NO_TAG' 'Ljava/lang/String;' @872 
+ - public static final 'ALL_STANDARD_TAGS' 'Ljava/lang/String;' @876 
+ - private static final 'NO_STRINGS' '[Ljava/lang/String;' @880 
+ - public static final 'MethodWithConstructorName' 'I' @888 
+ - public static final 'OverriddenPackageDefaultMethod' 'I' @892 
+ - public static final 'UsingDeprecatedAPI' 'I' @896 
+ - public static final 'MaskedCatchBlock' 'I' @900 
+ - public static final 'UnusedLocalVariable' 'I' @904 
+ - public static final 'UnusedArgument' 'I' @908 
+ - public static final 'NoImplicitStringConversion' 'I' @912 
+ - public static final 'AccessEmulation' 'I' @916 
+ - public static final 'NonExternalizedString' 'I' @920 
+ - public static final 'AssertUsedAsAnIdentifier' 'I' @924 
+ - public static final 'UnusedImport' 'I' @928 
+ - public static final 'NonStaticAccessToStatic' 'I' @932 
+ - public static final 'Task' 'I' @936 
+ - public static final 'NoEffectAssignment' 'I' @940 
+ - public static final 'IncompatibleNonInheritedInterfaceMethod' 'I' @944 
+ - public static final 'UnusedPrivateMember' 'I' @948 
+ - public static final 'LocalVariableHiding' 'I' @952 
+ - public static final 'FieldHiding' 'I' @956 
+ - public static final 'AccidentalBooleanAssign' 'I' @960 
+ - public static final 'EmptyStatement' 'I' @964 
+ - public static final 'MissingJavadocComments' 'I' @968 
+ - public static final 'MissingJavadocTags' 'I' @972 
+ - public static final 'UnqualifiedFieldAccess' 'I' @976 
+ - public static final 'UnusedDeclaredThrownException' 'I' @980 
+ - public static final 'FinallyBlockNotCompleting' 'I' @984 
+ - public static final 'InvalidJavadoc' 'I' @988 
+ - public static final 'UnnecessaryTypeCheck' 'I' @992 
+ - public static final 'UndocumentedEmptyBlock' 'I' @996 
+ - public static final 'IndirectStaticAccess' 'I' @1000 
+ - public static final 'UnnecessaryElse' 'I' @1004 
+ - public static final 'UncheckedTypeOperation' 'I' @1008 
+ - public static final 'FinalParameterBound' 'I' @1012 
+ - public static final 'MissingSerialVersion' 'I' @1016 
+ - public static final 'EnumUsedAsAnIdentifier' 'I' @1020 
+ - public static final 'ForbiddenReference' 'I' @1024 
+ - public static final 'VarargsArgumentNeedCast' 'I' @1028 
+ - public static final 'NullReference' 'I' @1032 
+ - public static final 'AutoBoxing' 'I' @1036 
+ - public static final 'AnnotationSuperInterface' 'I' @1040 
+ - public static final 'TypeHiding' 'I' @1044 
+ - public static final 'MissingOverrideAnnotation' 'I' @1048 
+ - public static final 'MissingEnumConstantCase' 'I' @1052 
+ - public static final 'MissingDeprecatedAnnotation' 'I' @1056 
+ - public static final 'DiscouragedReference' 'I' @1060 
+ - public static final 'UnhandledWarningToken' 'I' @1064 
+ - public static final 'RawTypeReference' 'I' @1068 
+ - public static final 'UnusedLabel' 'I' @1072 
+ - public static final 'ParameterAssignment' 'I' @1076 
+ - public static final 'FallthroughCase' 'I' @1080 
+ - public static final 'OverridingMethodWithoutSuperInvocation' 'I' @1084 
+ - public static final 'PotentialNullReference' 'I' @1088 
+ - public static final 'RedundantNullCheck' 'I' @1092 
+ - public static final 'MissingJavadocTagDescription' 'I' @1096 
+ - public static final 'UnusedTypeArguments' 'I' @1100 
+ - public static final 'UnusedWarningToken' 'I' @1104 
+ - public static final 'RedundantSuperinterface' 'I' @1108 
+ - public static final 'ComparingIdentical' 'I' @1112 
+ - public static final 'MissingSynchronizedModifierInInheritedMethod' 'I' @1116 
+ - public static final 'ShouldImplementHashcode' 'I' @1120 
+ - public static final 'DeadCode' 'I' @1124 
+ - public static final 'Tasks' 'I' @1128 
+ - public static final 'UnusedObjectAllocation' 'I' @1132 
+ - public static final 'MethodCanBeStatic' 'I' @1136 
+ - public static final 'MethodCanBePotentiallyStatic' 'I' @1140 
+ - public static final 'RedundantSpecificationOfTypeArguments' 'I' @1144 
+ - public static final 'UnclosedCloseable' 'I' @1148 
+ - public static final 'PotentiallyUnclosedCloseable' 'I' @1152 
+ - public static final 'ExplicitlyClosedAutoCloseable' 'I' @1156 
+ - public static final 'NullSpecViolation' 'I' @1160 
+ - public static final 'NullAnnotationInferenceConflict' 'I' @1164 
+ - public static final 'NullUncheckedConversion' 'I' @1168 
+ - public static final 'RedundantNullAnnotation' 'I' @1172 
+ - public static final 'MissingNonNullByDefaultAnnotation' 'I' @1176 
+ - public static final 'MissingDefaultCase' 'I' @1180 
+ - public static final 'UnusedTypeParameter' 'I' @1184 
+ - public static final 'NonnullParameterAnnotationDropped' 'I' @1188 
+ - public static final 'UnusedExceptionParameter' 'I' @1192 
+ - public static final 'PessimisticNullAnalysisForFreeTypeVariables' 'I' @1196 
+ - public static final 'NonNullTypeVariableFromLegacyInvocation' 'I' @1200 
+ - public static final 'UnlikelyCollectionMethodArgumentType' 'I' @1204 
+ - public static final 'UnlikelyEqualsArgumentType' 'I' @1208 
+ - public static final 'UsingTerminallyDeprecatedAPI' 'I' @1212 
+ - public static final 'APILeak' 'I' @1216 
+ - public static final 'UnstableAutoModuleName' 'I' @1220 
+ - public static final 'PreviewFeatureUsed' 'I' @1224 
+ - public static final 'SuppressWarningsNotAnalysed' 'I' @1228 
+ - public static final 'AnnotatedTypeArgumentToUnannotated' 'I' @1232 
+ - public static 'tolerateIllegalAmbiguousVarargsInvocation' 'Z' @1236 
+ - public static final 'warningTokens' '[Ljava/lang/String;' @884 
+ - ---- non-static fields (44 words):
+ - public 'produceDebugAttributes' 'I' @12 
+ - public 'complianceLevel' 'J' @16 
+ - public 'originalComplianceLevel' 'J' @24 
+ - public 'sourceLevel' 'J' @32 
+ - public 'originalSourceLevel' 'J' @40 
+ - public 'targetJDK' 'J' @48 
+ - public 'intendedDefaultNonNullness' 'J' @56 
+ - public 'maxProblemsPerUnit' 'I' @64 
+ - public 'reportInvalidJavadocTagsVisibility' 'I' @68 
+ - public 'reportMissingJavadocTagsVisibility' 'I' @72 
+ - public 'reportMissingJavadocCommentsVisibility' 'I' @76 
+ - public 'produceMethodParameters' 'Z' @80 
+ - public 'generateGenericSignatureForLambdaExpressions' 'Z' @81 
+ - public 'verbose' 'Z' @82 
+ - public 'produceReferenceInfo' 'Z' @83 
+ - public 'preserveAllLocalVariables' 'Z' @84 
+ - public 'parseLiteralExpressionsAsConstants' 'Z' @85 
+ - public 'isTaskCaseSensitive' 'Z' @86 
+ - public 'reportDeprecationInsideDeprecatedCode' 'Z' @87 
+ - public 'reportDeprecationWhenOverridingDeprecatedMethod' 'Z' @88 
+ - public 'reportUnusedParameterWhenImplementingAbstract' 'Z' @89 
+ - public 'reportUnusedParameterWhenOverridingConcrete' 'Z' @90 
+ - public 'reportUnusedParameterIncludeDocCommentReference' 'Z' @91 
+ - public 'reportUnusedDeclaredThrownExceptionWhenOverriding' 'Z' @92 
+ - public 'reportUnusedDeclaredThrownExceptionIncludeDocCommentReference' 'Z' @93 
+ - public 'reportUnusedDeclaredThrownExceptionExemptExceptionAndThrowable' 'Z' @94 
+ - public 'reportSpecialParameterHidingField' 'Z' @95 
+ - public 'reportDeadCodeInTrivialIfStatement' 'Z' @96 
+ - public 'docCommentSupport' 'Z' @97 
+ - public 'reportInvalidJavadocTags' 'Z' @98 
+ - public 'reportInvalidJavadocTagsDeprecatedRef' 'Z' @99 
+ - public 'reportInvalidJavadocTagsNotVisibleRef' 'Z' @100 
+ - public 'reportMissingJavadocTagsOverriding' 'Z' @101 
+ - public 'reportMissingJavadocTagsMethodTypeParameters' 'Z' @102 
+ - public 'reportMissingJavadocCommentsOverriding' 'Z' @103 
+ - public 'inlineJsrBytecode' 'Z' @104 
+ - public 'shareCommonFinallyBlocks' 'Z' @105 
+ - public 'suppressWarnings' 'Z' @106 
+ - public 'suppressOptionalErrors' 'Z' @107 
+ - public 'treatOptionalErrorAsFatal' 'Z' @108 
+ - public 'performMethodsFullRecovery' 'Z' @109 
+ - public 'performStatementsRecovery' 'Z' @110 
+ - public 'processAnnotations' 'Z' @111 
+ - public 'storeAnnotations' 'Z' @112 
+ - public 'reportMissingOverrideAnnotationForInterfaceMethodImplementation' 'Z' @113 
+ - public 'generateClassFiles' 'Z' @114 
+ - public 'ignoreMethodBodies' 'Z' @115 
+ - public 'includeNullInfoFromAsserts' 'Z' @116 
+ - public 'reportUnavoidableGenericTypeProblems' 'Z' @117 
+ - public 'ignoreSourceFolderWarningOption' 'Z' @118 
+ - public 'isAnnotationBasedNullAnalysisEnabled' 'Z' @119 
+ - public 'analyseResourceLeaks' 'Z' @120 
+ - public 'reportMissingEnumCaseDespiteDefault' 'Z' @121 
+ - public 'reportUnlikelyCollectionMethodArgumentTypeStrict' 'Z' @122 
+ - public 'inheritNullAnnotations' 'Z' @123 
+ - public 'enableSyntacticNullAnalysisForFields' 'Z' @124 
+ - public 'pessimisticNullAnalysisForFreeTypeVariablesEnabled' 'Z' @125 
+ - public 'complainOnUninternedIdentityComparison' 'Z' @126 
+ - public 'emulateJavacBug8031744' 'Z' @127 
+ - public 'enablePreviewFeatures' 'Z' @128 
+ - public 'enableJdtDebugCompileMode' 'Z' @129 
+ - public 'ignoreUnnamedModuleForSplitPackage' 'Z' @130 
+ - public 'useStringConcatFactory' 'Z' @131 
+ - protected 'errorThreshold' 'Lorg/eclipse/jdt/internal/compiler/impl/IrritantSet;' @132 
+ - protected 'warningThreshold' 'Lorg/eclipse/jdt/internal/compiler/impl/IrritantSet;' @136 
+ - protected 'infoThreshold' 'Lorg/eclipse/jdt/internal/compiler/impl/IrritantSet;' @140 
+ - public 'defaultEncoding' 'Ljava/lang/String;' @144 
+ - public 'taskTags' '[[C' @148 
+ - public 'taskPriorities' '[[C' @152 
+ - public 'reportMissingJavadocTagDescription' 'Ljava/lang/String;' @156 
+ - public 'nullableAnnotationName' '[[C' @160 
+ - public 'nonNullAnnotationName' '[[C' @164 
+ - public 'nonNullByDefaultAnnotationName' '[[C' @168 
+ - public 'nullableAnnotationSecondaryNames' '[Ljava/lang/String;' @172 
+ - public 'nonNullAnnotationSecondaryNames' '[Ljava/lang/String;' @176 
+ - public 'nonNullByDefaultAnnotationSecondaryNames' '[Ljava/lang/String;' @180 
+ - public 'useNullTypeAnnotations' 'Ljava/lang/Boolean;' @184 
+ - non-static oop maps: 132-184 
+R11=0x000002d97137940a points into unknown readable memory: 00 00 00 00 00 00
+R12=0x0 is NULL
+R13=0x00000000eb281110 is an oop: org.eclipse.jdt.internal.core.util.CommentRecorderParser 
+{0x00000000eb281110} - klass: 'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+ - ---- fields (total size 51 words):
+ - public 'currentToken' 'I' @12  0
+ - protected 'astLengthPtr' 'I' @16  -1 (ffffffff)
+ - protected 'astPtr' 'I' @20  -1 (ffffffff)
+ - protected 'dietInt' 'I' @24  0
+ - protected 'endPosition' 'I' @28  0
+ - protected 'endStatementPosition' 'I' @32  0
+ - protected 'expressionLengthPtr' 'I' @36  -1 (ffffffff)
+ - protected 'expressionPtr' 'I' @40  -1 (ffffffff)
+ - protected 'rBracketPosition' 'I' @44  0
+ - public 'firstToken' 'I' @48  0
+ - protected 'typeAnnotationPtr' 'I' @52  -1 (ffffffff)
+ - protected 'typeAnnotationLengthPtr' 'I' @56  -1 (ffffffff)
+ - protected 'genericsIdentifiersLengthPtr' 'I' @60  0
+ - protected 'genericsLengthPtr' 'I' @64  0
+ - protected 'genericsPtr' 'I' @68  0
+ - protected 'identifierLengthPtr' 'I' @72  -1 (ffffffff)
+ - protected 'identifierPtr' 'I' @76  -1 (ffffffff)
+ - protected 'intPtr' 'I' @80  -1 (ffffffff)
+ - public 'lastAct' 'I' @84  0
+ - protected 'lastCheckPoint' 'I' @88  0
+ - protected 'lastErrorEndPosition' 'I' @92  0
+ - protected 'lastErrorEndPositionBeforeRecovery' 'I' @96  -1 (ffffffff)
+ - protected 'lastIgnoredToken' 'I' @100  0
+ - protected 'nextIgnoredToken' 'I' @104  0
+ - protected 'listLength' 'I' @108  0
+ - protected 'listTypeParameterLength' 'I' @112  0
+ - protected 'lParenPos' 'I' @116  0
+ - protected 'rParenPos' 'I' @120  0
+ - protected 'modifiers' 'I' @124  0
+ - protected 'modifiersSourceStart' 'I' @128  0
+ - protected 'annotationAsModifierSourceStart' 'I' @132  -1 (ffffffff)
+ - protected 'colonColonStart' 'I' @136  -1 (ffffffff)
+ - protected 'forStartPosition' 'I' @140  0
+ - protected 'nestedType' 'I' @144  0
+ - protected 'dimensions' 'I' @148  0
+ - protected 'switchNestingLevel' 'I' @152  0
+ - protected 'tryNestingLevel' 'I' @156  0
+ - protected 'rBraceStart' 'I' @160  0
+ - protected 'rBraceEnd' 'I' @164  0
+ - protected 'rBraceSuccessorStart' 'I' @168  0
+ - protected 'realBlockPtr' 'I' @172  -1 (ffffffff)
+ - protected 'recoveredStaticInitializerStart' 'I' @176  0
+ - protected 'lastPosistion' 'I' @180  0
+ - protected 'recoveredTypePtr' 'I' @184  0
+ - protected 'nextTypeStart' 'I' @188  0
+ - protected 'stateStackTop' 'I' @192  0
+ - protected 'synchronizedBlockSourceStart' 'I' @196  0
+ - protected 'lastJavadocEnd' 'I' @200  0
+ - protected 'valueLambdaNestDepth' 'I' @204  -1 (ffffffff)
+ - protected 'unstackedAct' 'I' @208  18335 (479f)
+ - protected 'diet' 'Z' @212  true
+ - protected 'hasError' 'Z' @213  false
+ - protected 'hasReportedError' 'Z' @214  false
+ - protected 'ignoreNextOpeningBrace' 'Z' @215  false
+ - protected 'ignoreNextClosingBrace' 'Z' @216  false
+ - public 'switchWithTry' 'Z' @217  false
+ - protected 'optimizeStringLiterals' 'Z' @218  false
+ - public 'reportOnlyOneSyntaxError' 'Z' @219  false
+ - public 'reportSyntaxErrorIsRequired' 'Z' @220  true
+ - protected 'restartRecovery' 'Z' @221  false
+ - protected 'annotationRecoveryActivated' 'Z' @222  true
+ - public 'methodRecoveryActivated' 'Z' @223  false
+ - protected 'statementRecoveryActivated' 'Z' @224  false
+ - protected 'checkExternalizeStrings' 'Z' @225  false
+ - protected 'recordStringLiterals' 'Z' @226  true
+ - protected 'parsingJava8Plus' 'Z' @227  true
+ - protected 'parsingJava9Plus' 'Z' @228  true
+ - protected 'parsingJava14Plus' 'Z' @229  true
+ - protected 'parsingJava15Plus' 'Z' @230  true
+ - protected 'parsingJava17Plus' 'Z' @231  true
+ - protected 'parsingJava18Plus' 'Z' @232  false
+ - protected 'previewEnabled' 'Z' @233  false
+ - protected 'parsingJava11Plus' 'Z' @234  true
+ - private 'haltOnSyntaxError' 'Z' @235  false
+ - private 'tolerateDefaultClassMethods' 'Z' @236  false
+ - private 'processingLambdaParameterList' 'Z' @237  false
+ - private 'expectTypeAnnotation' 'Z' @238  false
+ - private 'reparsingLambdaExpression' 'Z' @239  false
+ - protected 'caseFlagSet' 'Z' @240  false
+ - public 'scanner' 'Lorg/eclipse/jdt/internal/compiler/parser/Scanner;' @244  a 'org/eclipse/jdt/internal/compiler/parser/Scanner'{0x00000000eb281bb0} (eb281bb0)
+ - protected 'astLengthStack' '[I' @248  [I{0x00000000eb2844a0} (eb2844a0)
+ - protected 'astStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @252  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb2812a8} (eb2812a8)
+ - public 'compilationUnit' 'Lorg/eclipse/jdt/internal/compiler/ast/CompilationUnitDeclaration;' @256  NULL (0)
+ - protected 'currentElement' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveredElement;' @260  NULL (0)
+ - protected 'expressionLengthStack' '[I' @264  [I{0x00000000eb284578} (eb284578)
+ - protected 'expressionStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @268  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281448} (eb281448)
+ - protected 'typeAnnotationStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Annotation;' @272  a 'org/eclipse/jdt/internal/compiler/ast/Annotation'[100] {0x00000000eb2815e8} (eb2815e8)
+ - protected 'typeAnnotationLengthStack' '[I' @276  [I{0x00000000eb284600} (eb284600)
+ - protected 'genericsIdentifiersLengthStack' '[I' @280  [I{0x00000000eb281788} (eb281788)
+ - protected 'genericsLengthStack' '[I' @284  [I{0x00000000eb2817c0} (eb2817c0)
+ - protected 'genericsStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @288  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[10] {0x00000000eb2817f8} (eb2817f8)
+ - protected 'identifierLengthStack' '[I' @292  [I{0x00000000eb2847e8} (eb2847e8)
+ - protected 'identifierPositionStack' '[J' @296  [J{0x00000000eb284980} (eb284980)
+ - protected 'identifierStack' '[[C' @300  a {type array char}[30] {0x00000000eb284760} (eb284760)
+ - protected 'intStack' '[I' @304  [I{0x00000000eb284688} (eb284688)
+ - protected 'nestedMethod' '[I' @308  [I{0x00000000eb284870} (eb284870)
+ - protected 'caseStartMap' 'Ljava/util/Map;' @312  a 'java/util/HashMap'{0x00000000eb281830} (eb281830)
+ - 'noAstNodes' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @316  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb281860} (eb281860)
+ - 'noExpressions' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @320  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281a00} (eb281a00)
+ - protected 'options' 'Lorg/eclipse/jdt/internal/compiler/impl/CompilerOptions;' @324  a 'org/eclipse/jdt/internal/compiler/impl/CompilerOptions'{0x00000000eb26d628} (eb26d628)
+ - protected 'problemReporter' 'Lorg/eclipse/jdt/internal/compiler/problem/ProblemReporter;' @328  a 'org/eclipse/jdt/internal/compiler/problem/ProblemReporter'{0x00000000eb27a4c8} (eb27a4c8)
+ - protected 'realBlockStack' '[I' @332  [I{0x00000000eb2848f8} (eb2848f8)
+ - public 'referenceContext' 'Lorg/eclipse/jdt/internal/compiler/impl/ReferenceContext;' @336  NULL (0)
+ - protected 'recoveredTypes' '[Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @340  NULL (0)
+ - protected 'pendingRecoveredType' 'Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @344  NULL (0)
+ - public 'recoveryScanner' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveryScanner;' @348  NULL (0)
+ - protected 'stack' '[I' @352  [I{0x00000000eb282018} (eb282018)
+ - protected 'variablesCounter' '[I' @356  [I{0x00000000eb284a80} (eb284a80)
+ - public 'javadoc' 'Lorg/eclipse/jdt/internal/compiler/ast/Javadoc;' @360  NULL (0)
+ - public 'javadocParser' 'Lorg/eclipse/jdt/internal/compiler/parser/JavadocParser;' @364  a 'org/eclipse/jdt/internal/compiler/parser/JavadocParser'{0x00000000eb284bc8} (eb284bc8)
+ - public 'readManager' 'Lorg/eclipse/jdt/internal/compiler/ReadManager;' @368  NULL (0)
+ - private 'stateStackLengthStack' '[I' @372  [I{0x00000000eb281ba0} (eb281ba0)
+ - private 'recordNestedMethodLevels' 'Ljava/util/Map;' @376  a 'java/util/HashMap'{0x00000000eb284b08} (eb284b08)
+ - private 'recordPatternSwitches' 'Ljava/util/Map;' @380  a 'java/util/HashMap'{0x00000000eb284b38} (eb284b38)
+ - private 'recordNullSwitches' 'Ljava/util/Map;' @384  a 'java/util/HashMap'{0x00000000eb284b68} (eb284b68)
+ - private 'recordPatternLevel' 'Ljava/util/Map;' @388  a 'java/util/HashMap'{0x00000000eb284b98} (eb284b98)
+ - 'commentPtr' 'I' @392  -1 (ffffffff)
+ - 'commentStops' '[I' @396  [I{0x00000000eb285588} (eb285588)
+ - 'commentStarts' '[I' @400  [I{0x00000000eb2855c0} (eb2855c0)
+R14=0x000000f25fdfe370 is pointing into the stack for thread: 0x000002d97c306820
+R15=0x000002d97c306820 is a thread
+
+
+Top of Stack: (sp=0x000000f25fdfe288)
+0x000000f25fdfe288:   000002d901266ed4 000000f25fdfe3e0
+0x000000f25fdfe298:   000002d97c306820 0000000100865e88
+0x000000f25fdfe2a8:   0000000300000001 000002d97c306820
+0x000000f25fdfe2b8:   0000000000000001 00000000eb281110
+0x000000f25fdfe2c8:   000002d970c20000 0000000000000001
+0x000000f25fdfe2d8:   000002d920258118 000000f25fdfe358
+0x000000f25fdfe2e8:   000002d9075394ec 000002d97da45100
+0x000000f25fdfe2f8:   000002d9075394ec 0000000000000001
+0x000000f25fdfe308:   00000000eb281110 000000f25fdfe310
+0x000000f25fdfe318:   000002d97892218a 000000f25fdfe370
+0x000000f25fdfe328:   000002d97a562590 0000000000000000
+0x000000f25fdfe338:   00000000c0a2bd20 000002d9789221b8
+0x000000f25fdfe348:   000000f25fdfe300 000000f25fdfe368
+0x000000f25fdfe358:   000000f25fdfe3c0 000002d9075394ec
+0x000000f25fdfe368:   0000000000000001 00000000eb281110
+0x000000f25fdfe378:   000000f25fdfe378 000002d97897b01a
+0x000000f25fdfe388:   000000f25fdfe410 000002d97a640000
+0x000000f25fdfe398:   0000000000000000 00000000c0b0d998
+0x000000f25fdfe3a8:   000002d97897b1d0 000000f25fdfe368
+0x000000f25fdfe3b8:   000000f25fdfe3f0 000000f25fdfe460
+0x000000f25fdfe3c8:   000002d907539645 0000000000000000
+0x000000f25fdfe3d8:   0000000000000000 0000000000000000
+0x000000f25fdfe3e8:   0000000000000000 00000000ffffffff
+0x000000f25fdfe3f8:   00000000ffffffff 00000000eb285628
+0x000000f25fdfe408:   00000000eb088f20 00000000eb281110
+0x000000f25fdfe418:   000000f25fdfe418 000002d97897af5d
+0x000000f25fdfe428:   000000f25fdfe480 000002d97a640000
+0x000000f25fdfe438:   0000000000000000 00000000c0b0d998
+0x000000f25fdfe448:   000002d97897af90 000000f25fdfe3f0
+0x000000f25fdfe458:   000000f25fdfe470 000000f25fdfe4d0
+0x000000f25fdfe468:   000002d907539645 00000000eb285628
+0x000000f25fdfe478:   00000000eb088f20 00000000eb281110 
+
+Instructions: (pc=0x000002d9000a4860)
+0x000002d9000a4760:   00 00 00 00 00 00 00 00 40 48 0a 00 d9 02 00 00
+0x000002d9000a4770:   60 48 0a 00 d9 02 00 00 40 48 0a 00 d9 02 00 00
+0x000002d9000a4780:   64 03 00 00 27 03 00 00 b0 01 00 00 50 03 00 00
+0x000002d9000a4790:   98 03 00 00 a8 03 00 00 00 00 00 00 e8 03 00 00
+0x000002d9000a47a0:   58 04 00 00 60 04 00 00 60 04 00 00 60 04 00 00
+0x000002d9000a47b0:   78 04 00 00 78 04 00 00 78 04 00 00 40 00 00 00
+0x000002d9000a47c0:   80 23 00 00 03 00 00 00 00 00 00 00 02 00 00 00
+0x000002d9000a47d0:   00 00 00 00 08 00 00 00 df 01 00 00 02 00 00 00
+0x000002d9000a47e0:   ff ff ff ff ff ff ff ff 0b 60 21 c0 3b c0 28 34
+0x000002d9000a47f0:   0a c0 12 c0 5a b0 0e c0 17 64 0a 64 05 c0 17 64
+0x000002d9000a4800:   0a 64 5a f0 05 80 11 64 29 64 07 00 01 f8 71 ff
+0x000002d9000a4810:   05 50 00 c0 0a 64 05 64 03 f8 c7 c3 40 9a fc 7f
+0x000002d9000a4820:   05 70 0e 60 01 f8 2e ff 0e 90 0c 64 00 00 00 00
+0x000002d9000a4830:   0c 64 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0x000002d9000a4840:   44 8b 52 08 49 c1 e2 03 4c 3b d2 0f 85 2f c5 4d
+0x000002d9000a4850:   07 66 66 66 0f 1f 84 00 00 00 00 00 66 66 66 90
+0x000002d9000a4860:   89 84 2c 00 90 ff ff 55 48 83 ec 50 49 b8 c8 aa
+0x000002d9000a4870:   c7 7a d9 02 00 00 45 8b 88 cc 00 00 00 41 83 c1
+0x000002d9000a4880:   02 45 89 88 cc 00 00 00 41 81 e1 fe 07 00 00 41
+0x000002d9000a4890:   83 f9 00 0f 84 ba 00 00 00 44 8b 82 f4 00 00 00
+0x000002d9000a48a0:   45 8b 48 30 4c 8b c2 48 be c8 aa c7 7a d9 02 00
+0x000002d9000a48b0:   00 48 83 86 10 01 00 00 01 41 b8 00 00 00 00 48
+0x000002d9000a48c0:   8b f2 48 8b d6 48 89 74 24 38 0f 1f 44 00 00 e8
+0x000002d9000a48d0:   ec 7e ff 00 48 8b 54 24 38 48 be c8 aa c7 7a d9
+0x000002d9000a48e0:   02 00 00 48 83 86 48 01 00 00 01 48 be d8 26 ac
+0x000002d9000a48f0:   7a d9 02 00 00 8b be cc 00 00 00 83 c7 02 89 be
+0x000002d9000a4900:   cc 00 00 00 81 e7 fe ff 1f 00 83 ff 00 0f 84 66
+0x000002d9000a4910:   00 00 00 48 8b 54 24 38 c7 42 7c 00 00 00 00 c7
+0x000002d9000a4920:   82 80 00 00 00 ff ff ff ff c7 82 84 00 00 00 ff
+0x000002d9000a4930:   ff ff ff 8b b2 f4 00 00 00 c7 46 30 ff ff ff ff
+0x000002d9000a4940:   48 83 c4 50 5d 49 3b a7 50 03 00 00 0f 87 4d 00
+0x000002d9000a4950:   00 00 c3 49 ba 48 26 92 78 d9 02 00 00 4c 89 54 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x000002d901266ed4 is at entry_point+2452 in (nmethod*)0x000002d901266310
+Compiled method (c1) 3414732 10588       3       org.eclipse.jdt.internal.compiler.parser.Parser::initialize (423 bytes)
+ total in heap  [0x000002d901266310,0x000002d901267420] = 4368
+ relocation     [0x000002d901266468,0x000002d901266528] = 192
+ main code      [0x000002d901266540,0x000002d9012670a0] = 2912
+ stub code      [0x000002d9012670a0,0x000002d901267128] = 136
+ oops           [0x000002d901267128,0x000002d901267130] = 8
+ metadata       [0x000002d901267130,0x000002d901267148] = 24
+ scopes data    [0x000002d901267148,0x000002d901267218] = 208
+ scopes pcs     [0x000002d901267218,0x000002d9012673a8] = 400
+ dependencies   [0x000002d9012673a8,0x000002d9012673b0] = 8
+ nul chk table  [0x000002d9012673b0,0x000002d901267420] = 112
+stack at sp + 1 slots: 0x000000f25fdfe3e0 is pointing into the stack for thread: 0x000002d97c306820
+stack at sp + 2 slots: 0x000002d97c306820 is a thread
+stack at sp + 3 slots: 0x0000000100865e88 is a pointer to class: 
+org.eclipse.jdt.core.dom.CompilationUnitResolver {0x0000000100865e90}
+ - instance size:     13
+ - klass size:        99
+ - access:            synchronized 
+ - state:             fully_initialized
+ - name:              'org/eclipse/jdt/core/dom/CompilationUnitResolver'
+ - super:             'org/eclipse/jdt/internal/compiler/Compiler'
+ - sub:               
+ - arrays:            NULL
+ - methods:           Array<T>(0x000002d92024fec8)
+ - method ordering:   Array<T>(0x000002d977000018)
+ - default_methods:   Array<T>(0x000002d920280a28)
+ - default vtable indices:   Array<T>(0x000002d920280a38)
+ - local interfaces:  Array<T>(0x000002d977000058)
+ - trans. interfaces: Array<T>(0x000002d978983b38)
+ - constants:         constant pool [1159]/operands[15] {0x000002d920258f80} for 'org/eclipse/jdt/core/dom/CompilationUnitResolver' cache=0x000002d920282380
+ - class loader data:  loader data: 0x000002d97caebf40 for instance a 'org/eclipse/osgi/internal/loader/EquinoxClassLoader'{0x00000000c0284800}
+ - source file:       'CompilationUnitResolver.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x000002d9202809e0)
+ - nest members:     Array<T>(0x000002d92027ffe8)
+ - permitted subclasses:     Array<T>(0x000002d977000028)
+ - java mirror:       a 'java/lang/Class'{0x00000000eb1cdfe8} = 'org/eclipse/jdt/core/dom/CompilationUnitResolver'
+ - vtable length      33  (start addr: 0x0000000100866050)
+ - itable length      8 (start addr: 0x0000000100866158)
+ - ---- static fields (3 words):
+ - public static final 'RESOLVE_BINDING' 'I' @112 
+ - public static final 'PARTIAL' 'I' @116 
+ - public static final 'STATEMENT_RECOVERY' 'I' @120 
+ - public static final 'IGNORE_METHOD_BODIES' 'I' @124 
+ - public static final 'BINDING_RECOVERY' 'I' @128 
+ - public static final 'INCLUDE_RUNNING_VM_BOOTCLASSPATH' 'I' @132 
+ - ---- non-static fields (22 words):
+ - public 'remainingIterations' 'I' @12 
+ - public 'totalUnits' 'I' @16 
+ - public 'parseThreshold' 'I' @20 
+ - public 'annotationProcessorStartIndex' 'I' @24 
+ - public 'useSingleThread' 'Z' @28 
+ - public 'parser' 'Lorg/eclipse/jdt/internal/compiler/parser/Parser;' @32 
+ - public 'requestor' 'Lorg/eclipse/jdt/internal/compiler/ICompilerRequestor;' @36 
+ - public 'options' 'Lorg/eclipse/jdt/internal/compiler/impl/CompilerOptions;' @40 
+ - public 'problemReporter' 'Lorg/eclipse/jdt/internal/compiler/problem/ProblemReporter;' @44 
+ - protected 'out' 'Ljava/io/PrintWriter;' @48 
+ - public 'stats' 'Lorg/eclipse/jdt/internal/compiler/impl/CompilerStats;' @52 
+ - public 'progress' 'Lorg/eclipse/jdt/core/compiler/CompilationProgress;' @56 
+ - public 'unitsToProcess' '[Lorg/eclipse/jdt/internal/compiler/ast/CompilationUnitDeclaration;' @60 
+ - private 'aptProblems' 'Ljava/util/Map;' @64 
+ - public 'lookupEnvironment' 'Lorg/eclipse/jdt/internal/compiler/lookup/LookupEnvironment;' @68 
+ - public 'annotationProcessorManager' 'Lorg/eclipse/jdt/internal/compiler/AbstractAnnotationProcessorManager;' @72 
+ - public 'referenceBindings' '[Lorg/eclipse/jdt/internal/compiler/lookup/ReferenceBinding;' @76 
+ - 'hasCompilationAborted' 'Z' @29 
+ - 'fromJavaProject' 'Z' @30 
+ - 'requestedSources' 'Lorg/eclipse/jdt/internal/compiler/util/HashtableOfObject;' @80 
+ - 'requestedKeys' 'Lorg/eclipse/jdt/internal/compiler/util/HashtableOfObject;' @84 
+ - 'bindingTables' 'Lorg/eclipse/jdt/core/dom/DefaultBindingResolver$BindingTables;' @88 
+ - 'abortProblem' 'Lorg/eclipse/jdt/core/compiler/CategorizedProblem;' @92 
+ - private final 'monitor' 'Lorg/eclipse/core/runtime/IProgressMonitor;' @96 
+ - non-static oop maps: 32-96 
+stack at sp + 4 slots: 0x0000000300000001 is an unknown value
+stack at sp + 5 slots: 0x000002d97c306820 is a thread
+stack at sp + 6 slots: 0x0000000000000001 is an unknown value
+stack at sp + 7 slots: 0x00000000eb281110 is an oop: org.eclipse.jdt.internal.core.util.CommentRecorderParser 
+{0x00000000eb281110} - klass: 'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+ - ---- fields (total size 51 words):
+ - public 'currentToken' 'I' @12  0
+ - protected 'astLengthPtr' 'I' @16  -1 (ffffffff)
+ - protected 'astPtr' 'I' @20  -1 (ffffffff)
+ - protected 'dietInt' 'I' @24  0
+ - protected 'endPosition' 'I' @28  0
+ - protected 'endStatementPosition' 'I' @32  0
+ - protected 'expressionLengthPtr' 'I' @36  -1 (ffffffff)
+ - protected 'expressionPtr' 'I' @40  -1 (ffffffff)
+ - protected 'rBracketPosition' 'I' @44  0
+ - public 'firstToken' 'I' @48  0
+ - protected 'typeAnnotationPtr' 'I' @52  -1 (ffffffff)
+ - protected 'typeAnnotationLengthPtr' 'I' @56  -1 (ffffffff)
+ - protected 'genericsIdentifiersLengthPtr' 'I' @60  0
+ - protected 'genericsLengthPtr' 'I' @64  0
+ - protected 'genericsPtr' 'I' @68  0
+ - protected 'identifierLengthPtr' 'I' @72  -1 (ffffffff)
+ - protected 'identifierPtr' 'I' @76  -1 (ffffffff)
+ - protected 'intPtr' 'I' @80  -1 (ffffffff)
+ - public 'lastAct' 'I' @84  0
+ - protected 'lastCheckPoint' 'I' @88  0
+ - protected 'lastErrorEndPosition' 'I' @92  0
+ - protected 'lastErrorEndPositionBeforeRecovery' 'I' @96  -1 (ffffffff)
+ - protected 'lastIgnoredToken' 'I' @100  0
+ - protected 'nextIgnoredToken' 'I' @104  0
+ - protected 'listLength' 'I' @108  0
+ - protected 'listTypeParameterLength' 'I' @112  0
+ - protected 'lParenPos' 'I' @116  0
+ - protected 'rParenPos' 'I' @120  0
+ - protected 'modifiers' 'I' @124  0
+ - protected 'modifiersSourceStart' 'I' @128  0
+ - protected 'annotationAsModifierSourceStart' 'I' @132  -1 (ffffffff)
+ - protected 'colonColonStart' 'I' @136  -1 (ffffffff)
+ - protected 'forStartPosition' 'I' @140  0
+ - protected 'nestedType' 'I' @144  0
+ - protected 'dimensions' 'I' @148  0
+ - protected 'switchNestingLevel' 'I' @152  0
+ - protected 'tryNestingLevel' 'I' @156  0
+ - protected 'rBraceStart' 'I' @160  0
+ - protected 'rBraceEnd' 'I' @164  0
+ - protected 'rBraceSuccessorStart' 'I' @168  0
+ - protected 'realBlockPtr' 'I' @172  -1 (ffffffff)
+ - protected 'recoveredStaticInitializerStart' 'I' @176  0
+ - protected 'lastPosistion' 'I' @180  0
+ - protected 'recoveredTypePtr' 'I' @184  0
+ - protected 'nextTypeStart' 'I' @188  0
+ - protected 'stateStackTop' 'I' @192  0
+ - protected 'synchronizedBlockSourceStart' 'I' @196  0
+ - protected 'lastJavadocEnd' 'I' @200  0
+ - protected 'valueLambdaNestDepth' 'I' @204  -1 (ffffffff)
+ - protected 'unstackedAct' 'I' @208  18335 (479f)
+ - protected 'diet' 'Z' @212  true
+ - protected 'hasError' 'Z' @213  false
+ - protected 'hasReportedError' 'Z' @214  false
+ - protected 'ignoreNextOpeningBrace' 'Z' @215  false
+ - protected 'ignoreNextClosingBrace' 'Z' @216  false
+ - public 'switchWithTry' 'Z' @217  false
+ - protected 'optimizeStringLiterals' 'Z' @218  false
+ - public 'reportOnlyOneSyntaxError' 'Z' @219  false
+ - public 'reportSyntaxErrorIsRequired' 'Z' @220  true
+ - protected 'restartRecovery' 'Z' @221  false
+ - protected 'annotationRecoveryActivated' 'Z' @222  true
+ - public 'methodRecoveryActivated' 'Z' @223  false
+ - protected 'statementRecoveryActivated' 'Z' @224  false
+ - protected 'checkExternalizeStrings' 'Z' @225  false
+ - protected 'recordStringLiterals' 'Z' @226  true
+ - protected 'parsingJava8Plus' 'Z' @227  true
+ - protected 'parsingJava9Plus' 'Z' @228  true
+ - protected 'parsingJava14Plus' 'Z' @229  true
+ - protected 'parsingJava15Plus' 'Z' @230  true
+ - protected 'parsingJava17Plus' 'Z' @231  true
+ - protected 'parsingJava18Plus' 'Z' @232  false
+ - protected 'previewEnabled' 'Z' @233  false
+ - protected 'parsingJava11Plus' 'Z' @234  true
+ - private 'haltOnSyntaxError' 'Z' @235  false
+ - private 'tolerateDefaultClassMethods' 'Z' @236  false
+ - private 'processingLambdaParameterList' 'Z' @237  false
+ - private 'expectTypeAnnotation' 'Z' @238  false
+ - private 'reparsingLambdaExpression' 'Z' @239  false
+ - protected 'caseFlagSet' 'Z' @240  false
+ - public 'scanner' 'Lorg/eclipse/jdt/internal/compiler/parser/Scanner;' @244  a 'org/eclipse/jdt/internal/compiler/parser/Scanner'{0x00000000eb281bb0} (eb281bb0)
+ - protected 'astLengthStack' '[I' @248  [I{0x00000000eb2844a0} (eb2844a0)
+ - protected 'astStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @252  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb2812a8} (eb2812a8)
+ - public 'compilationUnit' 'Lorg/eclipse/jdt/internal/compiler/ast/CompilationUnitDeclaration;' @256  NULL (0)
+ - protected 'currentElement' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveredElement;' @260  NULL (0)
+ - protected 'expressionLengthStack' '[I' @264  [I{0x00000000eb284578} (eb284578)
+ - protected 'expressionStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @268  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281448} (eb281448)
+ - protected 'typeAnnotationStack' '[Lorg/eclipse/jdt/internal/compiler/ast/Annotation;' @272  a 'org/eclipse/jdt/internal/compiler/ast/Annotation'[100] {0x00000000eb2815e8} (eb2815e8)
+ - protected 'typeAnnotationLengthStack' '[I' @276  [I{0x00000000eb284600} (eb284600)
+ - protected 'genericsIdentifiersLengthStack' '[I' @280  [I{0x00000000eb281788} (eb281788)
+ - protected 'genericsLengthStack' '[I' @284  [I{0x00000000eb2817c0} (eb2817c0)
+ - protected 'genericsStack' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @288  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[10] {0x00000000eb2817f8} (eb2817f8)
+ - protected 'identifierLengthStack' '[I' @292  [I{0x00000000eb2847e8} (eb2847e8)
+ - protected 'identifierPositionStack' '[J' @296  [J{0x00000000eb284980} (eb284980)
+ - protected 'identifierStack' '[[C' @300  a {type array char}[30] {0x00000000eb284760} (eb284760)
+ - protected 'intStack' '[I' @304  [I{0x00000000eb284688} (eb284688)
+ - protected 'nestedMethod' '[I' @308  [I{0x00000000eb284870} (eb284870)
+ - protected 'caseStartMap' 'Ljava/util/Map;' @312  a 'java/util/HashMap'{0x00000000eb281830} (eb281830)
+ - 'noAstNodes' '[Lorg/eclipse/jdt/internal/compiler/ast/ASTNode;' @316  a 'org/eclipse/jdt/internal/compiler/ast/ASTNode'[100] {0x00000000eb281860} (eb281860)
+ - 'noExpressions' '[Lorg/eclipse/jdt/internal/compiler/ast/Expression;' @320  a 'org/eclipse/jdt/internal/compiler/ast/Expression'[100] {0x00000000eb281a00} (eb281a00)
+ - protected 'options' 'Lorg/eclipse/jdt/internal/compiler/impl/CompilerOptions;' @324  a 'org/eclipse/jdt/internal/compiler/impl/CompilerOptions'{0x00000000eb26d628} (eb26d628)
+ - protected 'problemReporter' 'Lorg/eclipse/jdt/internal/compiler/problem/ProblemReporter;' @328  a 'org/eclipse/jdt/internal/compiler/problem/ProblemReporter'{0x00000000eb27a4c8} (eb27a4c8)
+ - protected 'realBlockStack' '[I' @332  [I{0x00000000eb2848f8} (eb2848f8)
+ - public 'referenceContext' 'Lorg/eclipse/jdt/internal/compiler/impl/ReferenceContext;' @336  NULL (0)
+ - protected 'recoveredTypes' '[Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @340  NULL (0)
+ - protected 'pendingRecoveredType' 'Lorg/eclipse/jdt/internal/compiler/ast/TypeDeclaration;' @344  NULL (0)
+ - public 'recoveryScanner' 'Lorg/eclipse/jdt/internal/compiler/parser/RecoveryScanner;' @348  NULL (0)
+ - protected 'stack' '[I' @352  [I{0x00000000eb282018} (eb282018)
+ - protected 'variablesCounter' '[I' @356  [I{0x00000000eb284a80} (eb284a80)
+ - public 'javadoc' 'Lorg/eclipse/jdt/internal/compiler/ast/Javadoc;' @360  NULL (0)
+ - public 'javadocParser' 'Lorg/eclipse/jdt/internal/compiler/parser/JavadocParser;' @364  a 'org/eclipse/jdt/internal/compiler/parser/JavadocParser'{0x00000000eb284bc8} (eb284bc8)
+ - public 'readManager' 'Lorg/eclipse/jdt/internal/compiler/ReadManager;' @368  NULL (0)
+ - private 'stateStackLengthStack' '[I' @372  [I{0x00000000eb281ba0} (eb281ba0)
+ - private 'recordNestedMethodLevels' 'Ljava/util/Map;' @376  a 'java/util/HashMap'{0x00000000eb284b08} (eb284b08)
+ - private 'recordPatternSwitches' 'Ljava/util/Map;' @380  a 'java/util/HashMap'{0x00000000eb284b38} (eb284b38)
+ - private 'recordNullSwitches' 'Ljava/util/Map;' @384  a 'java/util/HashMap'{0x00000000eb284b68} (eb284b68)
+ - private 'recordPatternLevel' 'Ljava/util/Map;' @388  a 'java/util/HashMap'{0x00000000eb284b98} (eb284b98)
+ - 'commentPtr' 'I' @392  -1 (ffffffff)
+ - 'commentStops' '[I' @396  [I{0x00000000eb285588} (eb285588)
+ - 'commentStarts' '[I' @400  [I{0x00000000eb2855c0} (eb2855c0)
+
+
+Compiled method (c1) 3414826 9088 %     3       org.eclipse.jdt.internal.core.util.CommentRecorderParser::resetModifiers @ -131073 (17 bytes)
+ total in heap  [0x000002d9000a4690,0x000002d9000a4b08] = 1144
+ relocation     [0x000002d9000a47e8,0x000002d9000a4830] = 72
+ main code      [0x000002d9000a4840,0x000002d9000a49e0] = 416
+ stub code      [0x000002d9000a49e0,0x000002d9000a4a28] = 72
+ oops           [0x000002d9000a4a28,0x000002d9000a4a38] = 16
+ metadata       [0x000002d9000a4a38,0x000002d9000a4a48] = 16
+ scopes data    [0x000002d9000a4a48,0x000002d9000a4a78] = 48
+ scopes pcs     [0x000002d9000a4a78,0x000002d9000a4ae8] = 112
+ dependencies   [0x000002d9000a4ae8,0x000002d9000a4af0] = 8
+ nul chk table  [0x000002d9000a4af0,0x000002d9000a4b08] = 24
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000002d978922650} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/core/util/CommentRecorderParser'
+  0x000002d9000a4840: 448b 5208 | 49c1 e203 
+
+  0x000002d9000a4848: ;   {runtime_call ic_miss_stub}
+  0x000002d9000a4848: 4c3b d20f | 852f c54d | 0766 6666 | 0f1f 8400 | 0000 0000 | 6666 6690 
+[Verified Entry Point]
+  0x000002d9000a4860: 8984 2c00 | 90ff ff55 | 4883 ec50 
+
+  0x000002d9000a486c: ;   {metadata(method data for {method} {0x000002d978922650} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/core/util/CommentRecorderParser')}
+  0x000002d9000a486c: 49b8 c8aa | c77a d902 | 0000 458b | 88cc 0000 | 0041 83c1 | 0245 8988 | cc00 0000 | 4181 e1fe 
+  0x000002d9000a488c: 0700 0041 | 83f9 000f | 84ba 0000 | 0044 8b82 | f400 0000 
+
+  0x000002d9000a48a0: ; implicit exception: dispatches to 0x000002d9000a4974
+  0x000002d9000a48a0: 458b 4830 
+
+  0x000002d9000a48a4: ;   {metadata(method data for {method} {0x000002d978922650} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/core/util/CommentRecorderParser')}
+  0x000002d9000a48a4: 4c8b c248 | bec8 aac7 | 7ad9 0200 | 0048 8386 | 1001 0000 | 0141 b800 | 0000 0048 | 8bf2 488b 
+  0x000002d9000a48c4: d648 8974 | 2438 0f1f 
+
+  0x000002d9000a48cc: ;   {optimized virtual_call}
+  0x000002d9000a48cc: 4400 00e8 
+
+  0x000002d9000a48d0: ; ImmutableOopMap {[56]=Oop }
+                      ;*invokevirtual pushOnCommentsStack {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.eclipse.jdt.internal.core.util.CommentRecorderParser::resetModifiers@9 (line 310)
+  0x000002d9000a48d0: ec7e ff00 | 488b 5424 
+
+  0x000002d9000a48d8: ;   {metadata(method data for {method} {0x000002d978922650} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/core/util/CommentRecorderParser')}
+  0x000002d9000a48d8: 3848 bec8 | aac7 7ad9 | 0200 0048 | 8386 4801 
+
+  0x000002d9000a48e8: ;   {metadata(method data for {method} {0x000002d97897e6e8} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/compiler/parser/Parser')}
+  0x000002d9000a48e8: 0000 0148 | bed8 26ac | 7ad9 0200 | 008b becc | 0000 0083 | c702 89be | cc00 0000 | 81e7 feff 
+  0x000002d9000a4908: 1f00 83ff | 000f 8466 | 0000 0048 | 8b54 2438 | c742 7c00 | 0000 00c7 | 8280 0000 | 00ff ffff 
+  0x000002d9000a4928: ffc7 8284 | 0000 00ff | ffff ff8b | b2f4 0000 | 00c7 4630 | ffff ffff | 4883 c450 
+
+  0x000002d9000a4944: ;   {poll_return}
+  0x000002d9000a4944: 5d49 3ba7 | 5003 0000 | 0f87 4d00 
+
+  0x000002d9000a4950: ;   {metadata({method} {0x000002d978922650} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/core/util/CommentRecorderParser')}
+  0x000002d9000a4950: 0000 c349 | ba48 2692 | 78d9 0200 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000002d9000a4968: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000002d9000a4968: ffff e811 
+
+  0x000002d9000a496c: ; ImmutableOopMap {rdx=Oop }
+                      ;*synchronization entry
+                      ; - org.eclipse.jdt.internal.core.util.CommentRecorderParser::resetModifiers@-1 (line 310)
+  0x000002d9000a496c: 5458 07e9 | 25ff ffff 
+
+  0x000002d9000a4974: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000002d9000a4974: e827 0358 
+
+  0x000002d9000a4978: ; ImmutableOopMap {rdx=Oop }
+                      ;*getfield commentPtr {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.eclipse.jdt.internal.core.util.CommentRecorderParser::resetModifiers@6 (line 310)
+                      ;   {metadata({method} {0x000002d97897e6e8} 'resetModifiers' '()V' in 'org/eclipse/jdt/internal/compiler/parser/Parser')}
+  0x000002d9000a4978: 0749 bae0 | e697 78d9 | 0200 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000002d9000a4990: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000002d9000a4990: e8eb 5358 
+
+  0x000002d9000a4994: ; ImmutableOopMap {[56]=Oop }
+                      ;*synchronization entry
+                      ; - org.eclipse.jdt.internal.compiler.parser.Parser::resetModifiers@-1 (line 14434)
+                      ; - org.eclipse.jdt.internal.core.util.CommentRecorderParser::resetModifiers@13 (line 311)
+  0x000002d9000a4994: 07e9 79ff 
+
+  0x000002d9000a4998: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000002d9000a4998: ffff e801 
+
+  0x000002d9000a499c: ; ImmutableOopMap {}
+                      ;*putfield commentPtr {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) org.eclipse.jdt.internal.compiler.parser.Parser::resetModifiers@20 (line 14437)
+                      ; - org.eclipse.jdt.internal.core.util.CommentRecorderParser::resetModifiers@13 (line 311)
+                      ;   {internal_word}
+  0x000002d9000a499c: 0358 0749 | ba45 490a | 00d9 0200 | 004d 8997 | 6803 0000 
+
+  0x000002d9000a49b0: ;   {runtime_call SafepointBlob}
+  0x000002d9000a49b0: e94b 2d4e | 0790 9049 | 8b87 e003 | 0000 49c7 | 87e0 0300 | 0000 0000 | 0049 c787 | e803 0000 
+  0x000002d9000a49d0: 0000 0000 | 4883 c450 
+
+  0x000002d9000a49d8: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x000002d9000a49d8: 5de9 2217 | 4f07 f4f4 
+[Stub Code]
+  0x000002d9000a49e0: ;   {no_reloc}
+  0x000002d9000a49e0: 0f1f 4400 
+
+  0x000002d9000a49e4: ;   {static_stub}
+  0x000002d9000a49e4: 0048 bb00 | 0000 0000 
+
+  0x000002d9000a49ec: ;   {runtime_call}
+  0x000002d9000a49ec: 0000 00e9 | fbff ffff 
+[Exception Handler]
+  0x000002d9000a49f4: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x000002d9000a49f4: e887 2058 
+
+  0x000002d9000a49f8: ;   {external_word}
+  0x000002d9000a49f8: 0748 b940 | 9ac7 c3fc | 7f00 0048 
+
+  0x000002d9000a4a04: ;   {runtime_call}
+  0x000002d9000a4a04: 83e4 f049 | ba60 2f90 | c3fc 7f00 | 0041 ffd2 
+
+  0x000002d9000a4a14: ;   {section_word}
+  0x000002d9000a4a14: f449 ba15 | 4a0a 00d9 | 0200 0041 
+
+  0x000002d9000a4a20: ;   {runtime_call DeoptimizationBlob}
+  0x000002d9000a4a20: 52e9 7a1f | 4e07 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000002d91832a5f0, length=28, elements={
+0x000002d97189c560, 0x000002d97193a9d0, 0x000002d97193c190, 0x000002d97b88e090,
+0x000002d97b88ea60, 0x000002d97670d630, 0x000002d976711490, 0x000002d9767173a0,
+0x000002d97671b050, 0x000002d97671c4d0, 0x000002d97b9677a0, 0x000002d97bbdd4d0,
+0x000002d97c21af20, 0x000002d97c395160, 0x000002d97c396530, 0x000002d97c0b6e10,
+0x000002d97c0b7320, 0x000002d97c0b7830, 0x000002d97c0b7d40, 0x000002d97c307240,
+0x000002d97c308680, 0x000002d97c3058f0, 0x000002d97c308170, 0x000002d97c306d30,
+0x000002d97c30a9f0, 0x000002d97c306820, 0x000002d97c303a90, 0x000002d97c3090a0
+}
+
+Java Threads: ( => current thread )
+  0x000002d97189c560 JavaThread "main" [_thread_blocked, id=9516, stack(0x000000f260000000,0x000000f260100000)]
+  0x000002d97193a9d0 JavaThread "Reference Handler" daemon [_thread_blocked, id=11348, stack(0x000000f260300000,0x000000f260400000)]
+  0x000002d97193c190 JavaThread "Finalizer" daemon [_thread_blocked, id=7836, stack(0x000000f260400000,0x000000f260500000)]
+  0x000002d97b88e090 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11692, stack(0x000000f260500000,0x000000f260600000)]
+  0x000002d97b88ea60 JavaThread "Attach Listener" daemon [_thread_blocked, id=9852, stack(0x000000f260600000,0x000000f260700000)]
+  0x000002d97670d630 JavaThread "Service Thread" daemon [_thread_blocked, id=10324, stack(0x000000f260700000,0x000000f260800000)]
+  0x000002d976711490 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=8264, stack(0x000000f260800000,0x000000f260900000)]
+  0x000002d9767173a0 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=9844, stack(0x000000f260900000,0x000000f260a00000)]
+  0x000002d97671b050 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=12756, stack(0x000000f260a00000,0x000000f260b00000)]
+  0x000002d97671c4d0 JavaThread "Sweeper thread" daemon [_thread_blocked, id=3256, stack(0x000000f260b00000,0x000000f260c00000)]
+  0x000002d97b9677a0 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=2592, stack(0x000000f260c00000,0x000000f260d00000)]
+  0x000002d97bbdd4d0 JavaThread "Notification Thread" daemon [_thread_blocked, id=11028, stack(0x000000f260e00000,0x000000f260f00000)]
+  0x000002d97c21af20 JavaThread "Active Thread: Equinox Container: 3b3b3a56-f603-43a2-ad1a-e887ddb599ed" [_thread_blocked, id=3032, stack(0x000000f260d00000,0x000000f260e00000)]
+  0x000002d97c395160 JavaThread "Framework Event Dispatcher: Equinox Container: 3b3b3a56-f603-43a2-ad1a-e887ddb599ed" daemon [_thread_blocked, id=13012, stack(0x000000f261400000,0x000000f261500000)]
+  0x000002d97c396530 JavaThread "Start Level: Equinox Container: 3b3b3a56-f603-43a2-ad1a-e887ddb599ed" daemon [_thread_blocked, id=8320, stack(0x000000f261500000,0x000000f261600000)]
+  0x000002d97c0b6e10 JavaThread "Bundle File Closer" daemon [_thread_blocked, id=2232, stack(0x000000f261300000,0x000000f261400000)]
+  0x000002d97c0b7320 JavaThread "SCR Component Actor" daemon [_thread_blocked, id=7268, stack(0x000000f261600000,0x000000f261700000)]
+  0x000002d97c0b7830 JavaThread "Worker-JM" [_thread_blocked, id=1400, stack(0x000000f261800000,0x000000f261900000)]
+  0x000002d97c0b7d40 JavaThread "Worker-0" [_thread_blocked, id=11724, stack(0x000000f261900000,0x000000f261a00000)]
+  0x000002d97c307240 JavaThread "Java indexing" daemon [_thread_blocked, id=1360, stack(0x000000f261c00000,0x000000f261d00000)]
+  0x000002d97c308680 JavaThread "JNA Cleaner" daemon [_thread_blocked, id=4528, stack(0x000000f261b00000,0x000000f261c00000)]
+  0x000002d97c3058f0 JavaThread "pool-2-thread-1" [_thread_blocked, id=12724, stack(0x000000f262100000,0x000000f262200000)]
+  0x000002d97c308170 JavaThread "WorkspaceEventsHandler" [_thread_blocked, id=12804, stack(0x000000f262300000,0x000000f262400000)]
+  0x000002d97c306d30 JavaThread "pool-1-thread-1" [_thread_blocked, id=11788, stack(0x000000f262400000,0x000000f262500000)]
+  0x000002d97c30a9f0 JavaThread "Worker-7" [_thread_blocked, id=13340, stack(0x000000f25fe00000,0x000000f25ff00000)]
+=>0x000002d97c306820 JavaThread "ForkJoinPool.commonPool-worker-5" daemon [_thread_in_Java, id=15260, stack(0x000000f25fd00000,0x000000f25fe00000)]
+  0x000002d97c303a90 JavaThread "ForkJoinPool.commonPool-worker-6" daemon [_thread_blocked, id=15264, stack(0x000000f25ff00000,0x000000f260000000)]
+  0x000002d97c3090a0 JavaThread "ForkJoinPool.commonPool-worker-7" daemon [_thread_blocked, id=15268, stack(0x000000f261700000,0x000000f261800000)]
+
+Other Threads:
+  0x000002d9719369c0 VMThread "VM Thread" [stack: 0x000000f260200000,0x000000f260300000] [id=12880] _threads_hazard_ptr=0x000002d91832a5f0
+  0x000002d97bc055c0 WatcherThread [stack: 0x000000f260f00000,0x000000f261000000] [id=7612]
+  0x000002d9718b25c0 GCTaskThread "GC Thread#0" [stack: 0x000000f260100000,0x000000f260200000] [id=696]
+  0x000002d97c4702f0 GCTaskThread "GC Thread#1" [stack: 0x000000f261000000,0x000000f261100000] [id=13244]
+  0x000002d97c4709c0 GCTaskThread "GC Thread#2" [stack: 0x000000f261100000,0x000000f261200000] [id=12432]
+  0x000002d97bf81130 GCTaskThread "GC Thread#3" [stack: 0x000000f261200000,0x000000f261300000] [id=6524]
+
+Threads with active compile tasks:
+
+VM state: synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002d971898710] Threads_lock - owner thread: 0x000002d9719369c0
+
+Heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) not mapped
+Compressed class space mapped at: 0x0000000100000000-0x0000000140000000, reserved size: 1073741824
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x140000000
+
+GC Precious Log:
+ CPUs: 4 total, 4 available
+ Memory: 8091M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (32-bit)
+ Alignments: Space 512K, Generation 512K, Heap 2M
+ Heap Min Capacity: 100M
+ Heap Initial Capacity: 100M
+ Heap Max Capacity: 1G
+ Pre-touch: Disabled
+ Parallel Workers: 4
+
+Heap:
+ PSYoungGen      total 18432K, used 7883K [0x00000000eab00000, 0x00000000ebe00000, 0x0000000100000000)
+  eden space 17408K, 44% used [0x00000000eab00000,0x00000000eb28aff0,0x00000000ebc00000)
+  from space 1024K, 15% used [0x00000000ebc00000,0x00000000ebc28000,0x00000000ebd00000)
+  to   space 512K, 0% used [0x00000000ebd80000,0x00000000ebd80000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 64198K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 93% used [0x00000000c0000000,0x00000000c3eb1a68,0x00000000c4300000)
+ Metaspace       used 74914K, committed 76160K, reserved 1179648K
+  class space    used 7965K, committed 8512K, reserved 1048576K
+
+Card table byte_map: [0x000002d971220000,0x000002d971430000] _byte_map_base: 0x000002d970c20000
+
+Marking Bits: (ParMarkBitMap*) 0x00007ffcc3eed0b0
+ Begin Bits: [0x000002d974520000, 0x000002d975520000)
+ End Bits:   [0x000002d975520000, 0x000002d976520000)
+
+Polling page: 0x000002d96f7c0000
+
+Metaspace:
+
+Usage:
+  Non-class:     65.38 MB used.
+      Class:      7.78 MB used.
+       Both:     73.16 MB used.
+
+Virtual space:
+  Non-class space:      128.00 MB reserved,      66.06 MB ( 52%) committed,  2 nodes.
+      Class space:        1.00 GB reserved,       8.31 MB ( <1%) committed,  1 nodes.
+             Both:        1.12 GB reserved,      74.38 MB (  6%) committed. 
+
+Chunk freelists:
+   Non-Class:  13.47 MB
+       Class:  7.56 MB
+        Both:  21.03 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 97.31 MB
+CDS: off
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 9.
+num_arena_births: 858.
+num_arena_deaths: 16.
+num_vsnodes_births: 3.
+num_vsnodes_deaths: 0.
+num_space_committed: 1190.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 26.
+num_chunks_taken_from_freelist: 3743.
+num_chunk_merges: 10.
+num_chunk_splits: 2380.
+num_chunks_enlarged: 1466.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120000Kb used=6238Kb max_used=6238Kb free=113761Kb
+ bounds [0x000002d907ad0000, 0x000002d9080f0000, 0x000002d90f000000]
+CodeHeap 'profiled nmethods': size=120000Kb used=19833Kb max_used=19833Kb free=100166Kb
+ bounds [0x000002d900000000, 0x000002d901360000, 0x000002d907530000]
+CodeHeap 'non-nmethods': size=5760Kb used=1388Kb max_used=1478Kb free=4371Kb
+ bounds [0x000002d907530000, 0x000002d9077a0000, 0x000002d907ad0000]
+ total_blobs=10085 nmethods=9344 adapters=651
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 3414.292 Thread 0x000002d97671b050 nmethod 10940 0x000002d90135ce90 code [0x000002d90135d060, 0x000002d90135d458]
+Event: 3414.294 Thread 0x000002d97671b050 10945       3       sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder::decodeLoop (127 bytes)
+Event: 3414.295 Thread 0x000002d97671b050 nmethod 10945 0x000002d90135d610 code [0x000002d90135d8c0, 0x000002d90135e408]
+Event: 3414.295 Thread 0x000002d97671b050 10946       3       java.nio.CharBuffer::mark (7 bytes)
+Event: 3414.295 Thread 0x000002d97671b050 nmethod 10946 0x000002d90135e810 code [0x000002d90135e9a0, 0x000002d90135eb18]
+Event: 3414.295 Thread 0x000002d9767173a0 nmethod 10942 0x000002d9080e4a90 code [0x000002d9080e4c40, 0x000002d9080e4f48]
+Event: 3414.295 Thread 0x000002d97671b050 10947       3       java.util.Locale::getLanguage (8 bytes)
+Event: 3414.295 Thread 0x000002d9767173a0 10944       4       java.lang.reflect.Field::get (29 bytes)
+Event: 3414.295 Thread 0x000002d97671b050 nmethod 10947 0x000002d90135ec10 code [0x000002d90135eda0, 0x000002d90135eed8]
+Event: 3414.299 Thread 0x000002d9767173a0 nmethod 10944 0x000002d9080e5210 code [0x000002d9080e53e0, 0x000002d9080e5830]
+Event: 3414.299 Thread 0x000002d9767173a0 10943       4       java.lang.reflect.Field::setFieldAccessor (34 bytes)
+Event: 3414.300 Thread 0x000002d9767173a0 nmethod 10943 0x000002d9080e5c90 code [0x000002d9080e5e20, 0x000002d9080e5f28]
+Event: 3414.319 Thread 0x000002d97671b050 10948       3       org.eclipse.jdt.internal.compiler.util.ObjectVector::add (61 bytes)
+Event: 3414.319 Thread 0x000002d9767173a0 10949       4       org.eclipse.jdt.internal.core.JrtPackageFragmentRoot::equals (69 bytes)
+Event: 3414.319 Thread 0x000002d97671b050 nmethod 10948 0x000002d90135ef90 code [0x000002d90135f140, 0x000002d90135f568]
+Event: 3414.320 Thread 0x000002d97671b050 10951       3       java.io.Writer::<init> (22 bytes)
+Event: 3414.320 Thread 0x000002d97671b050 nmethod 10951 0x000002d90135f710 code [0x000002d90135f8c0, 0x000002d90135fb48]
+Event: 3414.327 Thread 0x000002d9767173a0 nmethod 10949 0x000002d9080e6010 code [0x000002d9080e61c0, 0x000002d9080e69b8]
+Event: 3414.328 Thread 0x000002d9767173a0 10950   !   4       org.eclipse.jdt.internal.core.JavaModelManager::getPerProjectInfo (62 bytes)
+Event: 3414.333 Thread 0x000002d9767173a0 nmethod 10950 0x000002d9080e6d90 code [0x000002d9080e6f40, 0x000002d9080e7668]
+
+GC Heap History (20 events):
+Event: 71.433 GC heap before
+{Heap before GC invocations=45 (full 3):
+ PSYoungGen      total 23552K, used 22176K [0x00000000eab00000, 0x00000000ec480000, 0x0000000100000000)
+  eden space 19968K, 100% used [0x00000000eab00000,0x00000000ebe80000,0x00000000ebe80000)
+  from space 3584K, 61% used [0x00000000ebe80000,0x00000000ec0a8010,0x00000000ec200000)
+  to   space 2560K, 0% used [0x00000000ec200000,0x00000000ec200000,0x00000000ec480000)
+ ParOldGen       total 68608K, used 51890K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 75% used [0x00000000c0000000,0x00000000c32ac868,0x00000000c4300000)
+ Metaspace       used 70951K, committed 72256K, reserved 1114112K
+  class space    used 7651K, committed 8256K, reserved 1048576K
+}
+Event: 71.438 GC heap after
+{Heap after GC invocations=45 (full 3):
+ PSYoungGen      total 20480K, used 2552K [0x00000000eab00000, 0x00000000ec980000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 2560K, 99% used [0x00000000ec200000,0x00000000ec47e298,0x00000000ec480000)
+  to   space 5632K, 0% used [0x00000000ebc80000,0x00000000ebc80000,0x00000000ec200000)
+ ParOldGen       total 68608K, used 54042K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 78% used [0x00000000c0000000,0x00000000c34c6878,0x00000000c4300000)
+ Metaspace       used 70951K, committed 72256K, reserved 1114112K
+  class space    used 7651K, committed 8256K, reserved 1048576K
+}
+Event: 71.541 GC heap before
+{Heap before GC invocations=46 (full 3):
+ PSYoungGen      total 20480K, used 20472K [0x00000000eab00000, 0x00000000ec980000, 0x0000000100000000)
+  eden space 17920K, 100% used [0x00000000eab00000,0x00000000ebc80000,0x00000000ebc80000)
+  from space 2560K, 99% used [0x00000000ec200000,0x00000000ec47e298,0x00000000ec480000)
+  to   space 5632K, 0% used [0x00000000ebc80000,0x00000000ebc80000,0x00000000ec200000)
+ ParOldGen       total 68608K, used 54042K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 78% used [0x00000000c0000000,0x00000000c34c6878,0x00000000c4300000)
+ Metaspace       used 71098K, committed 72384K, reserved 1114112K
+  class space    used 7660K, committed 8256K, reserved 1048576K
+}
+Event: 71.544 GC heap after
+{Heap after GC invocations=46 (full 3):
+ PSYoungGen      total 18944K, used 960K [0x00000000eab00000, 0x00000000ec280000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 1024K, 93% used [0x00000000ebc80000,0x00000000ebd70000,0x00000000ebd80000)
+  to   space 2560K, 0% used [0x00000000ec000000,0x00000000ec000000,0x00000000ec280000)
+ ParOldGen       total 68608K, used 56593K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 82% used [0x00000000c0000000,0x00000000c37447d8,0x00000000c4300000)
+ Metaspace       used 71098K, committed 72384K, reserved 1114112K
+  class space    used 7660K, committed 8256K, reserved 1048576K
+}
+Event: 71.826 GC heap before
+{Heap before GC invocations=47 (full 3):
+ PSYoungGen      total 18944K, used 18880K [0x00000000eab00000, 0x00000000ec280000, 0x0000000100000000)
+  eden space 17920K, 100% used [0x00000000eab00000,0x00000000ebc80000,0x00000000ebc80000)
+  from space 1024K, 93% used [0x00000000ebc80000,0x00000000ebd70000,0x00000000ebd80000)
+  to   space 2560K, 0% used [0x00000000ec000000,0x00000000ec000000,0x00000000ec280000)
+ ParOldGen       total 68608K, used 56593K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 82% used [0x00000000c0000000,0x00000000c37447d8,0x00000000c4300000)
+ Metaspace       used 71295K, committed 72640K, reserved 1114112K
+  class space    used 7681K, committed 8256K, reserved 1048576K
+}
+Event: 71.827 GC heap after
+{Heap after GC invocations=47 (full 3):
+ PSYoungGen      total 18432K, used 302K [0x00000000eab00000, 0x00000000ec080000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 512K, 59% used [0x00000000ec000000,0x00000000ec04ba40,0x00000000ec080000)
+  to   space 1024K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ebf80000)
+ ParOldGen       total 68608K, used 57097K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 83% used [0x00000000c0000000,0x00000000c37c27d8,0x00000000c4300000)
+ Metaspace       used 71295K, committed 72640K, reserved 1114112K
+  class space    used 7681K, committed 8256K, reserved 1048576K
+}
+Event: 71.996 GC heap before
+{Heap before GC invocations=48 (full 3):
+ PSYoungGen      total 18432K, used 18222K [0x00000000eab00000, 0x00000000ec080000, 0x0000000100000000)
+  eden space 17920K, 100% used [0x00000000eab00000,0x00000000ebc80000,0x00000000ebc80000)
+  from space 512K, 59% used [0x00000000ec000000,0x00000000ec04ba40,0x00000000ec080000)
+  to   space 1024K, 0% used [0x00000000ebe80000,0x00000000ebe80000,0x00000000ebf80000)
+ ParOldGen       total 68608K, used 57097K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 83% used [0x00000000c0000000,0x00000000c37c27d8,0x00000000c4300000)
+ Metaspace       used 71604K, committed 72960K, reserved 1114112K
+  class space    used 7724K, committed 8320K, reserved 1048576K
+}
+Event: 71.998 GC heap after
+{Heap after GC invocations=48 (full 3):
+ PSYoungGen      total 18944K, used 1015K [0x00000000eab00000, 0x00000000ec080000, 0x0000000100000000)
+  eden space 17920K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc80000)
+  from space 1024K, 99% used [0x00000000ebe80000,0x00000000ebf7dc68,0x00000000ebf80000)
+  to   space 1024K, 0% used [0x00000000ebf80000,0x00000000ebf80000,0x00000000ec080000)
+ ParOldGen       total 68608K, used 57560K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 83% used [0x00000000c0000000,0x00000000c3836218,0x00000000c4300000)
+ Metaspace       used 71604K, committed 72960K, reserved 1114112K
+  class space    used 7724K, committed 8320K, reserved 1048576K
+}
+Event: 72.052 GC heap before
+{Heap before GC invocations=49 (full 3):
+ PSYoungGen      total 18944K, used 18935K [0x00000000eab00000, 0x00000000ec080000, 0x0000000100000000)
+  eden space 17920K, 100% used [0x00000000eab00000,0x00000000ebc80000,0x00000000ebc80000)
+  from space 1024K, 99% used [0x00000000ebe80000,0x00000000ebf7dc68,0x00000000ebf80000)
+  to   space 1024K, 0% used [0x00000000ebf80000,0x00000000ebf80000,0x00000000ec080000)
+ ParOldGen       total 68608K, used 57560K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 83% used [0x00000000c0000000,0x00000000c3836218,0x00000000c4300000)
+ Metaspace       used 71698K, committed 73024K, reserved 1114112K
+  class space    used 7736K, committed 8320K, reserved 1048576K
+}
+Event: 72.055 GC heap after
+{Heap after GC invocations=49 (full 3):
+ PSYoungGen      total 18432K, used 1024K [0x00000000eab00000, 0x00000000ec380000, 0x0000000100000000)
+  eden space 17408K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc00000)
+  from space 1024K, 100% used [0x00000000ebf80000,0x00000000ec080000,0x00000000ec080000)
+  to   space 3584K, 0% used [0x00000000ebc00000,0x00000000ebc00000,0x00000000ebf80000)
+ ParOldGen       total 68608K, used 59508K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 86% used [0x00000000c0000000,0x00000000c3a1d210,0x00000000c4300000)
+ Metaspace       used 71698K, committed 73024K, reserved 1114112K
+  class space    used 7736K, committed 8320K, reserved 1048576K
+}
+Event: 72.315 GC heap before
+{Heap before GC invocations=50 (full 3):
+ PSYoungGen      total 18432K, used 18432K [0x00000000eab00000, 0x00000000ec380000, 0x0000000100000000)
+  eden space 17408K, 100% used [0x00000000eab00000,0x00000000ebc00000,0x00000000ebc00000)
+  from space 1024K, 100% used [0x00000000ebf80000,0x00000000ec080000,0x00000000ec080000)
+  to   space 3584K, 0% used [0x00000000ebc00000,0x00000000ebc00000,0x00000000ebf80000)
+ ParOldGen       total 68608K, used 59508K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 86% used [0x00000000c0000000,0x00000000c3a1d210,0x00000000c4300000)
+ Metaspace       used 72691K, committed 73984K, reserved 1179648K
+  class space    used 7816K, committed 8384K, reserved 1048576K
+}
+Event: 72.318 GC heap after
+{Heap after GC invocations=50 (full 3):
+ PSYoungGen      total 18944K, used 1398K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 17408K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc00000)
+  from space 1536K, 91% used [0x00000000ebc00000,0x00000000ebd5db18,0x00000000ebd80000)
+  to   space 2048K, 0% used [0x00000000ebe00000,0x00000000ebe00000,0x00000000ec000000)
+ ParOldGen       total 68608K, used 60548K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 88% used [0x00000000c0000000,0x00000000c3b21210,0x00000000c4300000)
+ Metaspace       used 72691K, committed 73984K, reserved 1179648K
+  class space    used 7816K, committed 8384K, reserved 1048576K
+}
+Event: 72.551 GC heap before
+{Heap before GC invocations=51 (full 3):
+ PSYoungGen      total 18944K, used 18806K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 17408K, 100% used [0x00000000eab00000,0x00000000ebc00000,0x00000000ebc00000)
+  from space 1536K, 91% used [0x00000000ebc00000,0x00000000ebd5db18,0x00000000ebd80000)
+  to   space 2048K, 0% used [0x00000000ebe00000,0x00000000ebe00000,0x00000000ec000000)
+ ParOldGen       total 68608K, used 60548K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 88% used [0x00000000c0000000,0x00000000c3b21210,0x00000000c4300000)
+ Metaspace       used 73073K, committed 74368K, reserved 1179648K
+  class space    used 7846K, committed 8448K, reserved 1048576K
+}
+Event: 72.555 GC heap after
+{Heap after GC invocations=51 (full 3):
+ PSYoungGen      total 19456K, used 1712K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 17408K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc00000)
+  from space 2048K, 83% used [0x00000000ebe00000,0x00000000ebfac010,0x00000000ec000000)
+  to   space 2048K, 0% used [0x00000000ebc00000,0x00000000ebc00000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 61860K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 90% used [0x00000000c0000000,0x00000000c3c691f8,0x00000000c4300000)
+ Metaspace       used 73073K, committed 74368K, reserved 1179648K
+  class space    used 7846K, committed 8448K, reserved 1048576K
+}
+Event: 73.265 GC heap before
+{Heap before GC invocations=52 (full 3):
+ PSYoungGen      total 19456K, used 19120K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 17408K, 100% used [0x00000000eab00000,0x00000000ebc00000,0x00000000ebc00000)
+  from space 2048K, 83% used [0x00000000ebe00000,0x00000000ebfac010,0x00000000ec000000)
+  to   space 2048K, 0% used [0x00000000ebc00000,0x00000000ebc00000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 61860K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 90% used [0x00000000c0000000,0x00000000c3c691f8,0x00000000c4300000)
+ Metaspace       used 73453K, committed 74752K, reserved 1179648K
+  class space    used 7862K, committed 8448K, reserved 1048576K
+}
+Event: 73.267 GC heap after
+{Heap after GC invocations=52 (full 3):
+ PSYoungGen      total 18432K, used 517K [0x00000000eab00000, 0x00000000ebe80000, 0x0000000100000000)
+  eden space 17408K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc00000)
+  from space 1024K, 50% used [0x00000000ebc00000,0x00000000ebc81420,0x00000000ebd00000)
+  to   space 1024K, 0% used [0x00000000ebd80000,0x00000000ebd80000,0x00000000ebe80000)
+ ParOldGen       total 68608K, used 63417K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 92% used [0x00000000c0000000,0x00000000c3dee460,0x00000000c4300000)
+ Metaspace       used 73453K, committed 74752K, reserved 1179648K
+  class space    used 7862K, committed 8448K, reserved 1048576K
+}
+Event: 74.052 GC heap before
+{Heap before GC invocations=53 (full 3):
+ PSYoungGen      total 18432K, used 17885K [0x00000000eab00000, 0x00000000ebe80000, 0x0000000100000000)
+  eden space 17408K, 99% used [0x00000000eab00000,0x00000000ebbf62f8,0x00000000ebc00000)
+  from space 1024K, 50% used [0x00000000ebc00000,0x00000000ebc81420,0x00000000ebd00000)
+  to   space 1024K, 0% used [0x00000000ebd80000,0x00000000ebd80000,0x00000000ebe80000)
+ ParOldGen       total 68608K, used 63417K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 92% used [0x00000000c0000000,0x00000000c3dee460,0x00000000c4300000)
+ Metaspace       used 73747K, committed 74944K, reserved 1179648K
+  class space    used 7888K, committed 8448K, reserved 1048576K
+}
+Event: 74.053 GC heap after
+{Heap after GC invocations=53 (full 3):
+ PSYoungGen      total 18432K, used 553K [0x00000000eab00000, 0x00000000ebe80000, 0x0000000100000000)
+  eden space 17408K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc00000)
+  from space 1024K, 54% used [0x00000000ebd80000,0x00000000ebe0a6b8,0x00000000ebe80000)
+  to   space 1024K, 0% used [0x00000000ebc00000,0x00000000ebc00000,0x00000000ebd00000)
+ ParOldGen       total 68608K, used 63767K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 92% used [0x00000000c0000000,0x00000000c3e45ec0,0x00000000c4300000)
+ Metaspace       used 73747K, committed 74944K, reserved 1179648K
+  class space    used 7888K, committed 8448K, reserved 1048576K
+}
+Event: 74.292 GC heap before
+{Heap before GC invocations=54 (full 3):
+ PSYoungGen      total 18432K, used 17961K [0x00000000eab00000, 0x00000000ebe80000, 0x0000000100000000)
+  eden space 17408K, 100% used [0x00000000eab00000,0x00000000ebc00000,0x00000000ebc00000)
+  from space 1024K, 54% used [0x00000000ebd80000,0x00000000ebe0a6b8,0x00000000ebe80000)
+  to   space 1024K, 0% used [0x00000000ebc00000,0x00000000ebc00000,0x00000000ebd00000)
+ ParOldGen       total 68608K, used 63767K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 92% used [0x00000000c0000000,0x00000000c3e45ec0,0x00000000c4300000)
+ Metaspace       used 73963K, committed 75264K, reserved 1179648K
+  class space    used 7895K, committed 8448K, reserved 1048576K
+}
+Event: 74.294 GC heap after
+{Heap after GC invocations=54 (full 3):
+ PSYoungGen      total 18432K, used 160K [0x00000000eab00000, 0x00000000ebe00000, 0x0000000100000000)
+  eden space 17408K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000ebc00000)
+  from space 1024K, 15% used [0x00000000ebc00000,0x00000000ebc28000,0x00000000ebd00000)
+  to   space 512K, 0% used [0x00000000ebd80000,0x00000000ebd80000,0x00000000ebe00000)
+ ParOldGen       total 68608K, used 64198K [0x00000000c0000000, 0x00000000c4300000, 0x00000000eab00000)
+  object space 68608K, 93% used [0x00000000c0000000,0x00000000c3eb1a68,0x00000000c4300000)
+ Metaspace       used 73963K, committed 75264K, reserved 1179648K
+  class space    used 7895K, committed 8448K, reserved 1048576K
+}
+
+Dll operation events (11 events):
+Event: 0.266 Loaded shared library c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\java.dll
+Event: 0.395 Loaded shared library c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\zip.dll
+Event: 0.398 Loaded shared library C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\instrument.dll
+Event: 0.410 Loaded shared library C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\net.dll
+Event: 0.413 Loaded shared library C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\nio.dll
+Event: 0.419 Loaded shared library C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\zip.dll
+Event: 0.433 Loaded shared library C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\jimage.dll
+Event: 0.488 Loaded shared library c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\verify.dll
+Event: 5.106 Loaded shared library C:\Users\HOME\AppData\Roaming\Code\User\globalStorage\redhat.java\1.25.1\config_win\org.eclipse.equinox.launcher\org.eclipse.equinox.launcher.win32.win32.x86_64_1.2.800.v20231003-1442\eclipse_11802.dll
+Event: 38.289 Loaded shared library C:\Users\HOME\AppData\Local\Temp\jna-2223327\jna12006874840964693829.dll
+Event: 49.592 Loaded shared library C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\sunmscapi.dll
+
+Deoptimization events (20 events):
+Event: 3414.292 Thread 0x000002d97c306820 Uncommon trap: trap_request=0xffffff45 fr.pc=0x000002d907efd5b0 relative=0x0000000000000110
+Event: 3414.292 Thread 0x000002d97c306820 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000002d907efd5b0 method=org.eclipse.jdt.internal.compiler.impl.CompilerOptions.versionFromJdkLevel(J)Ljava/lang/String; @ 7 c2
+Event: 3414.292 Thread 0x000002d97c306820 DEOPT PACKING pc=0x000002d907efd5b0 sp=0x000000f25fdfe570
+Event: 3414.292 Thread 0x000002d97c306820 DEOPT UNPACKING pc=0x000002d9075866a3 sp=0x000000f25fdfe508 mode 2
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000002d9080cd6c0 relative=0x00000000000015e0
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000002d9080cd6c0 method=org.eclipse.jdt.internal.core.PackageFragment.hashCode()I @ 4 c2
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT PACKING pc=0x000002d9080cd6c0 sp=0x000000f25fdfe190
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT UNPACKING pc=0x000002d9075866a3 sp=0x000000f25fdfe0d8 mode 2
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000002d9080cd6c0 relative=0x00000000000015e0
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000002d9080cd6c0 method=org.eclipse.jdt.internal.core.PackageFragment.hashCode()I @ 4 c2
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT PACKING pc=0x000002d9080cd6c0 sp=0x000000f25fdfe190
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT UNPACKING pc=0x000002d9075866a3 sp=0x000000f25fdfe0d8 mode 2
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000002d9080cd6c0 relative=0x00000000000015e0
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000002d9080cd6c0 method=org.eclipse.jdt.internal.core.PackageFragment.hashCode()I @ 4 c2
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT PACKING pc=0x000002d9080cd6c0 sp=0x000000f25fdfe190
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT UNPACKING pc=0x000002d9075866a3 sp=0x000000f25fdfe0d8 mode 2
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x000002d9080cd6c0 relative=0x00000000000015e0
+Event: 3414.319 Thread 0x000002d97c306820 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x000002d9080cd6c0 method=org.eclipse.jdt.internal.core.PackageFragment.hashCode()I @ 4 c2
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT PACKING pc=0x000002d9080cd6c0 sp=0x000000f25fdfe190
+Event: 3414.319 Thread 0x000002d97c306820 DEOPT UNPACKING pc=0x000002d9075866a3 sp=0x000000f25fdfe0d8 mode 2
+
+Classes unloaded (8 events):
+Event: 37.375 Thread 0x000002d9719369c0 Unloading class 0x0000000100250000 'java/lang/invoke/LambdaForm$MH+0x0000000100250000'
+Event: 37.375 Thread 0x000002d9719369c0 Unloading class 0x000000010024fc00 'java/lang/invoke/LambdaForm$MH+0x000000010024fc00'
+Event: 37.375 Thread 0x000002d9719369c0 Unloading class 0x000000010024f800 'java/lang/invoke/LambdaForm$MH+0x000000010024f800'
+Event: 37.375 Thread 0x000002d9719369c0 Unloading class 0x000000010024f400 'java/lang/invoke/LambdaForm$MH+0x000000010024f400'
+Event: 37.375 Thread 0x000002d9719369c0 Unloading class 0x000000010024f000 'java/lang/invoke/LambdaForm$BMH+0x000000010024f000'
+Event: 37.375 Thread 0x000002d9719369c0 Unloading class 0x000000010024ec00 'java/lang/invoke/LambdaForm$DMH+0x000000010024ec00'
+Event: 37.375 Thread 0x000002d9719369c0 Unloading class 0x000000010024c000 'java/lang/invoke/LambdaForm$DMH+0x000000010024c000'
+Event: 59.566 Thread 0x000002d9719369c0 Unloading class 0x0000000100699000 'java/lang/invoke/LambdaForm$DMH+0x0000000100699000'
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 73.668 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eac87000}> (0x00000000eac87000) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.671 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eac9dda0}> (0x00000000eac9dda0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.717 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eacbcb88}> (0x00000000eacbcb88) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.719 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eacc3f58}> (0x00000000eacc3f58) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.721 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eaccbb58}> (0x00000000eaccbb58) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.744 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eacf3d08}> (0x00000000eacf3d08) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.745 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eacfad60}> (0x00000000eacfad60) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.747 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000ead02908}> (0x00000000ead02908) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.752 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000ead28410}> (0x00000000ead28410) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.754 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000ead2dde8}> (0x00000000ead2dde8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.755 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000ead32ce8}> (0x00000000ead32ce8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.777 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000ead4e7c8}> (0x00000000ead4e7c8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.780 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000ead64970}> (0x00000000ead64970) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.782 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000ead77c48}> (0x00000000ead77c48) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.809 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eaf10238}> (0x00000000eaf10238) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.832 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb05f780}> (0x00000000eb05f780) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.849 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb086a50}> (0x00000000eb086a50) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.853 Thread 0x000002d97c30a9f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000000eb0a2ea8}> (0x00000000eb0a2ea8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 73.911 Thread 0x000002d97c3049c0 Exception <a 'java/io/FileNotFoundException'{0x00000000eb284f58}> (0x00000000eb284f58) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 74.226 Thread 0x000002d97c308170 Implicit null exception at 0x000002d907c8d111 to 0x000002d907c8d77c
+
+VM Operations (20 events):
+Event: 2946.976 Executing VM operation: HandshakeAllThreads
+Event: 2946.976 Executing VM operation: HandshakeAllThreads done
+Event: 3034.227 Executing VM operation: Cleanup
+Event: 3034.227 Executing VM operation: Cleanup done
+Event: 3067.322 Executing VM operation: HandshakeAllThreads
+Event: 3067.322 Executing VM operation: HandshakeAllThreads done
+Event: 3127.377 Executing VM operation: HandshakeAllThreads
+Event: 3127.377 Executing VM operation: HandshakeAllThreads done
+Event: 3187.525 Executing VM operation: HandshakeAllThreads
+Event: 3187.525 Executing VM operation: HandshakeAllThreads done
+Event: 3247.673 Executing VM operation: HandshakeAllThreads
+Event: 3247.673 Executing VM operation: HandshakeAllThreads done
+Event: 3306.174 Executing VM operation: Cleanup
+Event: 3306.175 Executing VM operation: Cleanup done
+Event: 3307.914 Executing VM operation: HandshakeAllThreads
+Event: 3307.914 Executing VM operation: HandshakeAllThreads done
+Event: 3367.982 Executing VM operation: HandshakeAllThreads
+Event: 3367.982 Executing VM operation: HandshakeAllThreads done
+Event: 3413.385 Executing VM operation: Cleanup
+Event: 3413.385 Executing VM operation: Cleanup done
+
+Events (20 events):
+Event: 134.270 Thread 0x000002d97c307c60 Thread exited: 0x000002d97c307c60
+Event: 134.282 Thread 0x000002d97c306820 Thread exited: 0x000002d97c306820
+Event: 134.284 Thread 0x000002d97c3095b0 Thread exited: 0x000002d97c3095b0
+Event: 134.285 Thread 0x000002d97c303fa0 Thread exited: 0x000002d97c303fa0
+Event: 135.272 Thread 0x000002d97c3090a0 Thread exited: 0x000002d97c3090a0
+Event: 194.125 Thread 0x000002d97c30a9f0 Thread exited: 0x000002d97c30a9f0
+Event: 254.126 Thread 0x000002d97c309fd0 Thread exited: 0x000002d97c309fd0
+Event: 333.157 Thread 0x000002d97c30a9f0 Thread added: 0x000002d97c30a9f0
+Event: 370.542 Thread 0x000002d97c306310 Thread exited: 0x000002d97c306310
+Event: 370.598 Thread 0x000002d97c3095b0 Thread added: 0x000002d97c3095b0
+Event: 370.599 Thread 0x000002d97c3095b0 Thread exited: 0x000002d97c3095b0
+Event: 3305.595 Thread 0x000002d97c307c60 Thread added: 0x000002d97c307c60
+Event: 3365.614 Thread 0x000002d97c307c60 Thread exited: 0x000002d97c307c60
+Event: 3414.137 Thread 0x000002d97c306820 Thread added: 0x000002d97c306820
+Event: 3414.137 Thread 0x000002d97c303a90 Thread added: 0x000002d97c303a90
+Event: 3414.177 Thread 0x000002d97c3090a0 Thread added: 0x000002d97c3090a0
+Event: 3414.261 loading class java/lang/UnsupportedClassVersionError
+Event: 3414.261 loading class java/lang/UnsupportedClassVersionError done
+Event: 3414.266 loading class jdk/internal/reflect/UnsafeQualifiedStaticIntegerFieldAccessorImpl
+Event: 3414.290 loading class jdk/internal/reflect/UnsafeQualifiedStaticIntegerFieldAccessorImpl done
+
+
+Dynamic libraries:
+0x00007ff69c920000 - 0x00007ff69c92e000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\java.exe
+0x00007ffd308b0000 - 0x00007ffd30aa8000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffd2f9d0000 - 0x00007ffd2fa8d000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffd2e230000 - 0x00007ffd2e526000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffd2dfc0000 - 0x00007ffd2e0c0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffcfebf0000 - 0x00007ffcfec07000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\jli.dll
+0x00007ffd30560000 - 0x00007ffd306fe000 	C:\Windows\System32\USER32.dll
+0x00007ffd2e7c0000 - 0x00007ffd2e7e2000 	C:\Windows\System32\win32u.dll
+0x00007ffcfebd0000 - 0x00007ffcfebeb000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\VCRUNTIME140.dll
+0x00007ffd2fec0000 - 0x00007ffd2feec000 	C:\Windows\System32\GDI32.dll
+0x00007ffd2e110000 - 0x00007ffd2e22a000 	C:\Windows\System32\gdi32full.dll
+0x00007ffd2e720000 - 0x00007ffd2e7bd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffd27090000 - 0x00007ffd2732a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5\COMCTL32.dll
+0x00007ffd2f370000 - 0x00007ffd2f40e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffd2fa90000 - 0x00007ffd2fac0000 	C:\Windows\System32\IMM32.DLL
+0x0000000051f20000 - 0x0000000051f2c000 	C:\Program Files (x86)\360\Total Security\safemon\SafeWrapper.dll
+0x00007ffd2e9a0000 - 0x00007ffd2ea4f000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffd2f2d0000 - 0x00007ffd2f36c000 	C:\Windows\System32\sechost.dll
+0x00007ffd2fbf0000 - 0x00007ffd2fd16000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffce61d0000 - 0x00007ffce6262000 	C:\Program Files (x86)\360\Total Security\safemon\libzdtp64.dll
+0x00007ffd2eab0000 - 0x00007ffd2f1f5000 	C:\Windows\System32\SHELL32.dll
+0x00007ffd30480000 - 0x00007ffd304d5000 	C:\Windows\System32\SHLWAPI.dll
+0x00007ffd2d930000 - 0x00007ffd2d93a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffd05bf0000 - 0x00007ffd05bfc000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\vcruntime140_1.dll
+0x00007ffcddc20000 - 0x00007ffcddcad000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\msvcp140.dll
+0x00007ffcc3350000 - 0x00007ffcc3fb1000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\server\jvm.dll
+0x00007ffd2ddf0000 - 0x00007ffd2de3b000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffd1b290000 - 0x00007ffd1b2b7000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffd05630000 - 0x00007ffd05639000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffd2fe40000 - 0x00007ffd2feab000 	C:\Windows\System32\WS2_32.dll
+0x00007ffd2ddd0000 - 0x00007ffd2dde2000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffd2bcb0000 - 0x00007ffd2bcc2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffd05150000 - 0x00007ffd0515a000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\jimage.dll
+0x00007ffd27a30000 - 0x00007ffd27c14000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffd279f0000 - 0x00007ffd27a24000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffd2e690000 - 0x00007ffd2e712000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffd035a0000 - 0x00007ffd035ae000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\instrument.dll
+0x00007ffcfeba0000 - 0x00007ffcfebc5000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\java.dll
+0x00007ffcfeb80000 - 0x00007ffcfeb98000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\zip.dll
+0x00007ffd2bfc0000 - 0x00007ffd2c75b000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffd2f410000 - 0x00007ffd2f764000 	C:\Windows\System32\combase.dll
+0x00007ffd2d810000 - 0x00007ffd2d83d000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ffd2fd80000 - 0x00007ffd2fe2d000 	C:\Windows\System32\SHCORE.dll
+0x00007ffd2dec0000 - 0x00007ffd2dee5000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffcfc760000 - 0x00007ffcfc779000 	C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\net.dll
+0x00007ffd29270000 - 0x00007ffd2937a000 	C:\Windows\SYSTEM32\WINHTTP.dll
+0x00007ffd2d590000 - 0x00007ffd2d5fa000 	C:\Windows\system32\mswsock.dll
+0x00007ffcfc740000 - 0x00007ffcfc756000 	C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\nio.dll
+0x00007ffd02de0000 - 0x00007ffd02df0000 	c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\verify.dll
+0x00007ffcf6e90000 - 0x00007ffcf6ece000 	C:\Users\HOME\AppData\Roaming\Code\User\globalStorage\redhat.java\1.25.1\config_win\org.eclipse.equinox.launcher\org.eclipse.equinox.launcher.win32.win32.x86_64_1.2.800.v20231003-1442\eclipse_11802.dll
+0x00007ffd2fac0000 - 0x00007ffd2fbeb000 	C:\Windows\System32\ole32.dll
+0x00007ffd2d850000 - 0x00007ffd2d868000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x00007ffd2cee0000 - 0x00007ffd2cf14000 	C:\Windows\system32\rsaenh.dll
+0x00007ffd2df90000 - 0x00007ffd2dfb7000 	C:\Windows\System32\bcrypt.dll
+0x00007ffd2de40000 - 0x00007ffd2de6e000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ffd2d720000 - 0x00007ffd2d72c000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffd2d2a0000 - 0x00007ffd2d2db000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffd2feb0000 - 0x00007ffd2feb8000 	C:\Windows\System32\NSI.dll
+0x00007ffd296c0000 - 0x00007ffd296d7000 	C:\Windows\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffd296a0000 - 0x00007ffd296bd000 	C:\Windows\SYSTEM32\dhcpcsvc.DLL
+0x00007ffd2d2e0000 - 0x00007ffd2d3aa000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffd06910000 - 0x00007ffd06955000 	C:\Users\HOME\AppData\Local\Temp\jna-2223327\jna12006874840964693829.dll
+0x00007ffd30780000 - 0x00007ffd30788000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffd27080000 - 0x00007ffd2708e000 	C:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\sunmscapi.dll
+0x00007ffd2e530000 - 0x00007ffd2e68d000 	C:\Windows\System32\CRYPT32.dll
+0x00007ffd2d980000 - 0x00007ffd2d9a7000 	C:\Windows\SYSTEM32\ncrypt.dll
+0x00007ffd2d940000 - 0x00007ffd2d97b000 	C:\Windows\SYSTEM32\NTASN1.dll
+0x00007ffd279e0000 - 0x00007ffd279ea000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffd25870000 - 0x00007ffd258f0000 	C:\Windows\System32\fwpuclnt.dll
+0x00007ffd2d000000 - 0x00007ffd2d033000 	C:\Windows\SYSTEM32\ntmarta.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5;C:\Program Files (x86)\360\Total Security\safemon;c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\jre\17.0.9-win32-x86_64\bin\server;C:\Users\HOME\AppData\Roaming\Code\User\globalStorage\redhat.java\1.25.1\config_win\org.eclipse.equinox.launcher\org.eclipse.equinox.launcher.win32.win32.x86_64_1.2.800.v20231003-1442;C:\Users\HOME\AppData\Local\Temp\jna-2223327
+
+VM Arguments:
+jvm_args: --add-modules=ALL-SYSTEM --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Djava.import.generatesMetadataFilesAtProjectRoot=false -DDetectVMInstallationsJob.disabled=true -Dfile.encoding=utf8 -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -Xlog:disable -javaagent:c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\lombok\lombok-1.18.30.jar -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=c:\Users\HOME\AppData\Roaming\Code\User\workspaceStorage\6da7782a05a9d81c35b37bf8373c1f55\redhat.java -Daether.dependencyCollector.impl=bf 
+java_command: c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\server\plugins\org.eclipse.equinox.launcher_1.6.600.v20231106-1826.jar -configuration c:\Users\HOME\AppData\Roaming\Code\User\globalStorage\redhat.java\1.25.1\config_win -data c:\Users\HOME\AppData\Roaming\Code\User\workspaceStorage\6da7782a05a9d81c35b37bf8373c1f55\redhat.java\jdt_ws --stdio
+java_class_path (initial): c:\Users\HOME\.vscode\extensions\redhat.java-1.25.1-win32-x64\server\plugins\org.eclipse.equinox.launcher_1.6.600.v20231106-1826.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+    uintx AdaptiveSizePolicyWeight                 = 90                                        {product} {command line}
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+    uintx GCTimeRatio                              = 4                                         {product} {command line}
+     bool HeapDumpOnOutOfMemoryError               = true                                   {manageable} {command line}
+    ccstr HeapDumpPath                             = c:\Users\HOME\AppData\Roaming\Code\User\workspaceStorage\6da7782a05a9d81c35b37bf8373c1f55\redhat.java         {manageable} {command line}
+   size_t InitialHeapSize                          = 104857600                                 {product} {command line}
+   size_t MaxHeapSize                              = 1073741824                                {product} {command line}
+   size_t MaxNewSize                               = 357564416                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 524288                                    {product} {ergonomic}
+   size_t MinHeapSize                              = 104857600                                 {product} {command line}
+   size_t NewSize                                  = 34603008                                  {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+   size_t OldSize                                  = 70254592                                  {product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 1073741824                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+     bool UseParallelGC                            = true                                      {product} {command line}
+
+Logging:
+Log output configuration:
+ #0: stdout all=off uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files\Eclipse Adoptium\jdk-21.0.1.12-hotspot\bin;C:\Gradle\gradle-8.5\bin;C:\Program Files\Eclipse Adoptium\jdk-11.0.20.8-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Docker\Docker\resources\bin;C:\apache-maven-3.8.8\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\HOME\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\HOME\AppData\Local\Programs\Python\Python311\;C:\Users\HOME\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\HOME\AppData\Local\Programs\Python\Python310\;C:\Python 37\Scripts\;C:\Python 37\;C:\Users\HOME\AppData\Local\Microsoft\WindowsApps;C:\Users\HOME\.dotnet\tools;C:\Users\HOME\AppData\Local\Programs\Microsoft VS Code\bin;C:\Gradle\gradle-8.5\bin;C:\apache-maven-3.8.8\bin;
+USERNAME=HOME
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+TMP=C:\Users\HOME\AppData\Local\Temp
+TEMP=C:\Users\HOME\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+OS uptime: 2 days 21:24 hours
+Hyper-V role detected
+
+CPU: total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 94 stepping 3 microcode 0xcc, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, hv
+Processor Information for all 4 processors :
+  Max Mhz: 2701, Current Mhz: 2701, Mhz Limit: 2701
+
+Memory: 4k page, system-wide physical 8091M (2741M free)
+TotalPageFile size 12699M (AvailPageFile size 5060M)
+current process WorkingSet (physical memory assigned to process): 242M, peak: 303M
+current process commit charge ("private bytes"): 303M, peak: 343M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.9+9) for windows-amd64 JRE (17.0.9+9), built on Oct 26 2023 14:01:42 by "admin" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
